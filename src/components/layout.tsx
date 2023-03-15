@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import { ToggleSwitchButton } from './SwitchButton'
+import { ToggleSwitchButton } from './SwitchBtn/SwitchButton'
 
 interface LayoutProps {
   location?: any
