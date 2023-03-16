@@ -5,12 +5,17 @@ import moonIcon from '../../assets/moon.png'
 
 interface ToggleSwitchButtonProps {
   icon?: {
-    sun: string
-    dark: string
+    sun: React.ReactNode | React.ReactElement
+    dark: React.ReactNode | React.ReactElement
   }
 }
 
-export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = props => {
+export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
+  icon = {
+    dark: <img src={moonIcon} alt="dark" />,
+    sun: <img src={sunIcon} alt="" />,
+  },
+}) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const newRef = useRef<HTMLInputElement>(null)
   const preCheckbox = useRef(false)
@@ -56,15 +61,15 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = props => {
           onFocus={handleFocus}
         />
         <div className="toggle-switch-label">
-          <span className="toggle-switch-dark">
-            <img src={moonIcon} alt="" />
-          </span>
-          <span className="toggle-switch-sun">
-            <img src={sunIcon} alt="" />
-          </span>
+          <span className="toggle-switch-dark">{icon.dark}</span>
+          <span className="toggle-switch-sun">{icon.sun}</span>
           <span className={`toggle-switch-switch ${shadowClassName}`} />
         </div>
       </div>
     </>
   )
+}
+
+export const ToggleBtn: React.FC<ToggleSwitchButtonProps> = () => {
+  return <ToggleSwitchButton></ToggleSwitchButton>
 }

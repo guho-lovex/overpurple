@@ -14,7 +14,7 @@ export const HomeHeader: React.FC<{ title?: string }> = ({ title }) => {
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
       </h1>
-      <ToggleSwitchButton id="theme-switch" />
+      <ToggleSwitchButton />
     </div>
   )
 }
@@ -25,7 +25,7 @@ export const OtherPageHeader: React.FC<{ title?: string }> = ({ title }) => {
       <Link className="header-link-home" to="/">
         {title}
       </Link>
-      <ToggleSwitchButton id="theme-switch" />
+      <ToggleSwitchButton />
     </div>
   )
 }
