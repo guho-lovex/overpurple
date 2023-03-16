@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import './switchBtn.css'
+import './toggle.css'
 import sunIcon from '../../assets/sun.png'
 import moonIcon from '../../assets/moon.png'
 
@@ -59,6 +59,7 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
           className="toggle-switch-checkbox"
           onBlur={handleBlur}
           onFocus={handleFocus}
+          aria-label="Switch between Dark and Light mode"
         />
         <div className="toggle-switch-label">
           <span className="toggle-switch-dark">{icon.dark}</span>

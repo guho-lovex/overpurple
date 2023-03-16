@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import { ToggleSwitchButton } from './SwitchBtn/SwitchButton'
+import { ToggleBtn } from './Toggle/Toggle'
 
 interface LayoutProps {
   location?: any
@@ -14,7 +14,7 @@ export const HomeHeader: React.FC<{ title?: string }> = ({ title }) => {
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
       </h1>
-      <ToggleSwitchButton />
+      <ToggleBtn />
     </div>
   )
 }
@@ -25,7 +25,7 @@ export const OtherPageHeader: React.FC<{ title?: string }> = ({ title }) => {
       <Link className="header-link-home" to="/">
         {title}
       </Link>
-      <ToggleSwitchButton />
+      <ToggleBtn />
     </div>
   )
 }
