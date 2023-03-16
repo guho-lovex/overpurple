@@ -24,7 +24,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
+        path: `${__dirname}/src/blog`,
         name: `blog`,
       },
     },
@@ -101,7 +101,7 @@ module.exports = {
               }
             }`,
             output: '/rss.xml',
-            title: 'Gatsby Starter Blog RSS Feed',
+            title: "lovx's overpurple Blog RSS Feed",
           },
         ],
       },
