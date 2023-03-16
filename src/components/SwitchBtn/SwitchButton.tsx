@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import './switchBtn.css'
+import sunIcon from '../../assets/sun.png'
+import moonIcon from '../../assets/moon.png'
 
 interface ToggleSwitchButtonProps {
-  id: string
-  checked?: boolean
-  onChange?: (arg: any) => void
   icon?: {
     sun: string
     dark: string
@@ -12,36 +11,60 @@ interface ToggleSwitchButtonProps {
 }
 
 export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = props => {
-  const { id, checked, onChange, icon = { sun: '☀', dark: '☾' } } = props
+  const inputRef = useRef<HTMLInputElement>(null)
+  const newRef = useRef<HTMLInputElement>(null)
+  const preCheckbox = useRef(false)
+  const [hasFocus, setHasFocus] = useState(false)
+
+  useEffect(() => {
+    inputRef.current?.checked === preCheckbox.current
+  }, [preCheckbox])
+
+  const shadowClassName = useMemo(() => {
+    return hasFocus ? `switch-shadow` : ''
+  }, [hasFocus])
+
   const handleClick = () => {
-    console.log('------handleClick')
+    // checked: true dark
+    const checkbox = inputRef.current
+    const a = newRef.current
+    preCheckbox.current = !!checkbox?.checked
+    if (preCheckbox.current === checkbox?.checked) {
+      a?.focus()
+      checkbox?.focus()
+      checkbox?.click()
+      return
+    }
   }
-  const handleTouchClick = () => {
-    console.log('------handleTouchClick')
+
+  const handleBlur = () => {
+    setHasFocus(false)
+  }
+
+  const handleFocus = () => {
+    setHasFocus(true)
   }
 
   return (
-    <div
-      className="toggle-switch"
-      onClick={handleClick}
-      onTouchStart={handleTouchClick}
-    >
-      <input
-        type="checkbox"
-        className="toggle-switch-checkbox"
-        checked={checked}
-        onChange={e => onChange?.(e.target.checked)}
-      />
-      {id ? (
-        <label className="toggle-switch-label" htmlFor={props.id}>
-          <span
-            className="toggle-switch-inner"
-            data-dark-icon={icon?.dark}
-            data-sun-icon={icon?.sun}
-          ></span>
-          <span className="toggle-switch-switch"></span>
-        </label>
-      ) : null}
-    </div>
+    <>
+      <div className="toggle-switch" onClick={handleClick}>
+        <input
+          ref={inputRef}
+          type="checkbox"
+          className="toggle-switch-checkbox"
+          onBlur={handleBlur}
+          onFocus={handleFocus}
+        />
+        <div className="toggle-switch-label">
+          <span className="toggle-switch-dark">
+            <img src={moonIcon} alt="" />
+          </span>
+          <span className="toggle-switch-sun">
+            <img src={sunIcon} alt="" />
+          </span>
+          <span className={`toggle-switch-switch ${shadowClassName}`} />
+        </div>
+      </div>
+    </>
   )
 }

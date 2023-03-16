@@ -16,5 +16,5 @@
     "skipLibCheck": true // 跳过声明文件的类型检查,只会检查已引用的部分
   },
   "exclude": ["./node_modules", "./public", "./.cache"], // 解析时,应该跳过的路径
-  "include": ["src"] // 定义包含的路径,定义在其中的声明文件都会被解析进 vscode 的智能提示
+  "include": ["src", "global.d.ts"] // 定义包含的路径,定义在其中的声明文件都会被解析进 vscode 的智能提示
 }

@@ -58,9 +58,10 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
-  --color-purple: #714288;
+
   --theme-purple: #714288;
-  --theme-dark: rgb(13,12,12)
+  --theme-dark: #151414;
+  --border-size: 20px;
 }
 
 /* HTML elements */
@@ -202,7 +203,7 @@ blockquote {
   margin-left: calc(-1 * var(--spacing-6));
   margin-right: var(--spacing-8);
   padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
-  border-left: var(--spacing-1) solid var(--color-purple);
+  border-left: var(--spacing-1) solid var(--theme-purple);
   font-size: var(--fontSize-2);
   font-style: italic;
   margin-bottom: var(--spacing-8);
@@ -231,7 +232,7 @@ table thead tr th {
 /* Link */
 
 a {
-  color: var(--color-purple);
+  color: var(--theme-purple);
 }
 
 a:hover,
@@ -271,7 +272,7 @@ a:focus {
 
 .post-list-item h2 {
   font-size: var(--fontSize-4);
-  color: var(--color-purple);
+  color: var(--theme-purple);
   margin-bottom: var(--spacing-2);
   margin-top: var(--spacing-0);
 }
