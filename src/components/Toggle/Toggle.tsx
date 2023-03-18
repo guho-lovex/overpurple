@@ -1,9 +1,13 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import './toggle.css'
 import sunIcon from '../../assets/sun.png'
 import moonIcon from '../../assets/moon.png'
+import { ThemeContext, ThemeModeType } from '../theme/ThemeContext'
 
 interface ToggleSwitchButtonProps {
+  // 黑暗模式情况下的方法 ex： 改变页面样式
+  themeMode?: string
+  onChange?: any
   icon?: {
     sun: React.ReactNode | React.ReactElement
     dark: React.ReactNode | React.ReactElement
@@ -11,13 +15,14 @@ interface ToggleSwitchButtonProps {
 }
 
 export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
+  themeMode = ThemeModeType.Light,
+  onChange,
   icon = {
     dark: <img src={moonIcon} alt="dark" />,
     sun: <img src={sunIcon} alt="" />,
   },
 }) => {
   const inputRef = useRef<HTMLInputElement>(null)
-  const newRef = useRef<HTMLInputElement>(null)
   const preCheckbox = useRef(false)
   const [hasFocus, setHasFocus] = useState(false)
 
@@ -29,15 +34,25 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
     return hasFocus ? `switch-shadow` : ''
   }, [hasFocus])
 
+  useEffect(() => {
+    const checked = themeMode === ThemeModeType.Dark ? true : false
+    ;((inputRef.current || {}) as any).checked = checked
+  }, [themeMode])
+
   const handleClick = () => {
     // checked: true dark
     const checkbox = inputRef.current
-    const a = newRef.current
+
     preCheckbox.current = !!checkbox?.checked
     if (preCheckbox.current === checkbox?.checked) {
-      a?.focus()
       checkbox?.focus()
       checkbox?.click()
+      // 黑暗模式
+      if (checkbox?.checked) {
+        onChange?.(true)
+      } else {
+        onChange?.(false)
+      }
       return
     }
   }
@@ -72,5 +87,12 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
 }
 
 export const ToggleBtn: React.FC<ToggleSwitchButtonProps> = () => {
-  return <ToggleSwitchButton></ToggleSwitchButton>
+  const { themeMode, setThemeMode } = useContext(ThemeContext)
+
+  return (
+    <ToggleSwitchButton
+      themeMode={themeMode}
+      onChange={setThemeMode}
+    ></ToggleSwitchButton>
+  )
 }

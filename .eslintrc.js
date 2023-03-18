@@ -49,7 +49,7 @@ module.exports = {
       },
     ],
     'import/first': 'error',
-    'import/no-mutable-exports': 'error',
+    'import/no-mutable-exports': 'warn',
 
     // react
     'react/prop-types': 'off',

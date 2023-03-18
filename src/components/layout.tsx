@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { ToggleBtn } from './Toggle/Toggle'
+import { ThemeProvider } from './theme/ThemeContext'
 
 interface LayoutProps {
   location?: any
@@ -40,15 +41,21 @@ const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
   )
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
-      <main>{children}</main>
-      <footer>
-        <a href="https://juejin.cn/user/4283353029944296">掘金</a>
-        <> • </>
-        <a href="https://github.com/lovexueorangecat/overpurple.io">github</a>
-      </footer>
-    </div>
+    <ThemeProvider>
+      <div className="global-wrapper" data-is-root-path={isRootPath}>
+        <header className="global-header">{header}</header>
+        <main>{children}</main>
+        {isRootPath && (
+          <footer>
+            <a href="https://juejin.cn/user/4283353029944296">掘金</a>
+            <> • </>
+            <a href="https://github.com/lovexueorangecat/overpurple.io">
+              github
+            </a>
+          </footer>
+        )}
+      </div>
+    </ThemeProvider>
   )
 }
 
