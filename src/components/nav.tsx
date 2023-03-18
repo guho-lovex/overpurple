@@ -13,7 +13,7 @@ interface NavProps {
 const NavHeader = ({ title, rootPath }: NavProps) => {
   const titleHeaderClassName = useMemo(() => {
     if (typeof window != `undefined`) {
-      const isRootPath = window.location.pathname === rootPath
+      const isRootPath = window.location.pathname === rootPath + '/'
       const isDevPath = window.location.pathname === '/'
       const hiddenBioHeader = isRootPath || isDevPath
       console.log('-------isRootPath', isRootPath)
