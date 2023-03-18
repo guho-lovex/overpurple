@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { ToggleBtn } from './Toggle/Toggle'
-import { ThemeProvider } from './theme/ThemeContext'
+import { COLORS_MODE_KEY, ThemeProvider } from './theme/ThemeContext'
 
 interface LayoutProps {
   location?: Location
@@ -20,7 +20,9 @@ export const HomeHeader: React.FC<{ title?: string }> = ({ title }) => {
   )
 }
 
-export const OtherPageHeader: React.FC<{ title?: string }> = ({ title }) => {
+export const OtherPageHeader: React.FC<{
+  title?: string
+}> = ({ title }) => {
   return (
     <div className="flex items-center justify-between">
       <Link className="header-link-home" to="/">
