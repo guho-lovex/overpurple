@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { ToggleBtn } from './Toggle/Toggle'
-import { COLORS_MODE_KEY, ThemeProvider } from './theme/ThemeContext'
+import { ThemeProvider } from './theme/ThemeContext'
 
 interface LayoutProps {
   location?: Location
