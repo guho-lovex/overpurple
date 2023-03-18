@@ -59,7 +59,7 @@
   --color-heading-black: black;
   --color-accent: #d1dce5;
 
-  --theme-purple: #714288;
+  --theme-purple: #984bbe;
   --theme-dark: #282c35;
   --theme-dark-btn: #000;
   --border-size: 20px;
@@ -290,7 +290,7 @@ a:focus {
   font-weight: var(--fontWeight-bold);
   font-family: var(--font-heading);
   text-decoration: none;
-  font-size: var(--fontSize-0);
+  font-size: var(--fontSize-4);
 }
 
 .bio {
@@ -368,8 +368,7 @@ body.dark-mode blockquote {
   color: var(--color-text-dark)
 }
 
-body.dark-mode .bio {
-  display: flex;
+.bio {
   flex-direction: column;
 }
 
@@ -377,7 +376,7 @@ body.dark-mode .bio {
   display: none;
 }
 
-body.dark-mode .dark-footer {
+.dark-footer {
   display: flex;
   margin-top: var(--spacing-8);
 }

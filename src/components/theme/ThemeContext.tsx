@@ -32,6 +32,8 @@ export const ThemeProvider = ({ children }: any) => {
 
       rawSetThemeMode(window.__theme)
 
+      // TODO 需完成window注入，在控制台代码即可切换主题
+
       return (window.__theme = mode)
     }
 
