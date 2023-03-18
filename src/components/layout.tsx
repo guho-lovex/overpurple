@@ -4,7 +4,7 @@ import { ToggleBtn } from './Toggle/Toggle'
 import { ThemeProvider } from './theme/ThemeContext'
 
 interface LayoutProps {
-  location?: any
+  location?: Location
   title?: string
   children?: React.ReactNode
 }

@@ -358,6 +358,7 @@ body.dark-mode a {
 
 body.dark-mode .header-link-home {
   font-size: var(--fontSize-4);
+  color: var(--color-theme-dark)
 }
 
 body.dark-mode p {
@@ -373,7 +374,7 @@ body.dark-mode blockquote {
 }
 
 .bio .title-bio {
-  display: none;
+  display: block;
 }
 
 .dark-footer {
@@ -383,4 +384,8 @@ body.dark-mode blockquote {
 
 body.dark-mode .main-heading {
   color: var(--color-theme-dark);
+}
+
+.bio .header-home-second-header {
+  display: none;
 }

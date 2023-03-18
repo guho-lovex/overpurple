@@ -6,29 +6,25 @@
  */
 
 import * as React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
+import NavHeader from './nav'
 
 const Bio = () => {
   const data = useStaticQuery(pageQuery)
   // Set these values by editing "siteMetadata" in gatsby-config.js
-  const rootPath = data.site.siteMetadata?.pathPrefix
+  const rootPath = data.site?.pathPrefix
   const title = data.site.siteMetadata?.title
   const author = data.site.siteMetadata?.author
   // const social = data.site.siteMetadata?.social
 
-  const titleHeaderClassName =
-    (rootPath === location?.pathname || location?.pathname) === '/'
-      ? 'title-bio'
-      : ''
+  console.log('------rootPath', rootPath)
 
   return (
     <div className="bio">
-      {title && (
-        <Link className={`header-link-home ${titleHeaderClassName}`} to="/">
-          {title}
-        </Link>
-      )}
+      <>
+        <NavHeader title={title} rootPath={rootPath} />
+      </>
       <div className="dark-footer">
         <StaticImage
           className="bio-avatar"
@@ -64,6 +60,7 @@ const Bio = () => {
 export const pageQuery = graphql`
   query BioQuery {
     site {
+      pathPrefix
       siteMetadata {
         title
         author {

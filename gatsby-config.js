@@ -8,14 +8,14 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  pathPrefix: '/overpurple.io',
+  pathPrefix: '/overpurple.io/',
   siteMetadata: {
-    title: `Overpurpled`,
+    title: `Overpurple`,
     author: {
       name: `lovex`,
       summary: `I record growth with code`,
     },
-    description: `Overpurpled.io`,
+    description: `Overpurple.io`,
     siteUrl: `https://lovexueorangecat.github.io/overpurple.io/`,
   },
   flags: {
@@ -104,7 +104,7 @@ module.exports = {
               }
             }`,
             output: '/rss.xml',
-            title: "lovx's overpurple Blog RSS Feed",
+            title: "lovx's overpurpled Blog RSS Feed",
           },
         ],
       },
