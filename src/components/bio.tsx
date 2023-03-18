@@ -18,7 +18,7 @@ const Bio = () => {
   // const social = data.site.siteMetadata?.social
 
   const titleHeaderClassName =
-    rootPath === location.pathname || location.pathname === '/'
+    (rootPath === location?.pathname || location?.pathname) === '/'
       ? 'title-bio'
       : ''
 
