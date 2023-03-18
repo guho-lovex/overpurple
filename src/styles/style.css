@@ -380,3 +380,7 @@ body.dark-mode blockquote {
   display: flex;
   margin-top: var(--spacing-8);
 }
+
+body.dark-mode .main-heading {
+  color: var(--color-theme-dark);
+}

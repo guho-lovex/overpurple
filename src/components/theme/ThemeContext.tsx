@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 
 export const COLORS_MODE_KEY = 'darkMode'
+const hasWindow = typeof window !== `undefined`
 
 export const enum ThemeModeType {
   Dark = 'dark-mode',
@@ -12,7 +13,7 @@ export const ThemeContext = React.createContext<any>(null)
 export const ThemeProvider = ({ children }: any) => {
   const [themeMode, rawSetThemeMode] = useState<string>()
 
-  const darkMode = window.localStorage.getItem(COLORS_MODE_KEY)
+  const darkMode = hasWindow && window.localStorage.getItem(COLORS_MODE_KEY)
 
   useEffect(() => {
     const initialMode =
@@ -23,7 +24,7 @@ export const ThemeProvider = ({ children }: any) => {
 
   const contextValue = useMemo(() => {
     function setThemeMode(isDarkMode: boolean) {
-      window.localStorage.setItem(COLORS_MODE_KEY, `${isDarkMode}`)
+      hasWindow && window.localStorage.setItem(COLORS_MODE_KEY, `${isDarkMode}`)
 
       const mode =
         isDarkMode === true ? ThemeModeType.Dark : ThemeModeType.Light

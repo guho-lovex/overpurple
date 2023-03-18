@@ -18,6 +18,9 @@ module.exports = {
     description: `Overpurple.io`,
     siteUrl: `https://lovexueorangecat.github.io/overpurple.io/`,
   },
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
