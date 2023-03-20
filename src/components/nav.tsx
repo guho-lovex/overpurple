@@ -11,6 +11,11 @@ interface NavProps {
 }
 
 const NavHeader = ({ title, rootPath }: NavProps) => {
+  // ssr serve不能获取到window
+  if (typeof window != `undefined`) {
+    return null
+  }
+
   const titleHeaderClassName = useMemo(() => {
     if (typeof window != `undefined`) {
       const isRootPath = window.location.pathname === rootPath + '/'
@@ -26,11 +31,15 @@ const NavHeader = ({ title, rootPath }: NavProps) => {
   }, [rootPath])
 
   return (
-    <p className={titleHeaderClassName}>
-      <Link className="header-link-home header-home-second-header" to="/">
-        {title}
-      </Link>
-    </p>
+    <>
+      {titleHeaderClassName && (
+        <p className={titleHeaderClassName}>
+          <Link className="header-link-home header-home-second-header" to="/">
+            {title}
+          </Link>
+        </p>
+      )}
+    </>
   )
 }
 
