@@ -373,10 +373,6 @@ body.dark-mode blockquote {
   flex-direction: column;
 }
 
-.bio .title-bio {
-  display: block;
-}
-
 .dark-footer {
   display: flex;
   margin-top: var(--spacing-8);
@@ -388,4 +384,8 @@ body.dark-mode .main-heading a {
 
 .bio .header-home-second-header {
   display: none;
+}
+
+.bio .header-link-home.title-bio {
+  display: block;
 }

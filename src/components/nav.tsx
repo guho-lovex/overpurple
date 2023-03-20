@@ -29,13 +29,12 @@ const NavHeader = ({ title, rootPath }: NavProps) => {
 
   return (
     <div>
-      {titleClassName ? (
-        <p className={titleClassName}>
-          <Link className="header-link-home header-home-second-header" to="/">
-            {title}
-          </Link>
-        </p>
-      ) : null}
+      <Link
+        className={`header-link-home header-home-second-header ${titleClassName}`}
+        to="/"
+      >
+        {title}
+      </Link>
     </div>
   )
 }
