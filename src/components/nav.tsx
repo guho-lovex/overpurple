@@ -2,7 +2,7 @@
  *  所以封装成一个组件形式
  */
 
-import React, { useMemo } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 
 interface NavProps {
@@ -11,13 +11,10 @@ interface NavProps {
 }
 
 const NavHeader = ({ title, rootPath }: NavProps) => {
-  // ssr serve不能获取到window
-  if (typeof window != `undefined`) {
-    return null
-  }
+  const [titleClassName, setClassName] = useState<string>()
 
-  const titleHeaderClassName = useMemo(() => {
-    if (typeof window != `undefined`) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
       const isRootPath = window.location.pathname === rootPath + '/'
       const isDevPath = window.location.pathname === '/'
       const hiddenBioHeader = isRootPath || isDevPath
@@ -26,20 +23,20 @@ const NavHeader = ({ title, rootPath }: NavProps) => {
       console.log('-------hiddenBioHeader', hiddenBioHeader)
 
       const InsertClassName = hiddenBioHeader ? '' : 'title-bio'
-      return InsertClassName
+      setClassName(InsertClassName)
     }
-  }, [rootPath])
+  }, [])
 
   return (
-    <>
-      {titleHeaderClassName && (
-        <p className={titleHeaderClassName}>
+    <div>
+      {titleClassName ? (
+        <p className={titleClassName}>
           <Link className="header-link-home header-home-second-header" to="/">
             {title}
           </Link>
         </p>
-      )}
-    </>
+      ) : null}
+    </div>
   )
 }
 
