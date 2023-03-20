@@ -22,9 +22,9 @@ const Bio = () => {
 
   return (
     <div className="bio">
-      <>
+      <div>
         <NavHeader title={title} rootPath={rootPath} />
-      </>
+      </div>
       <div className="dark-footer">
         <StaticImage
           className="bio-avatar"

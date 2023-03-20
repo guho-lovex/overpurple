@@ -25,18 +25,12 @@ const NavHeader = ({ title, rootPath }: NavProps) => {
     }
   }, [rootPath])
 
-  // 没有这个值就保持ssr渲染的一样返回null
-  if (!titleHeaderClassName) {
-    return null
-  }
-
   return (
-    <Link
-      className={`header-link-home .header-home-second-header ${titleHeaderClassName}`}
-      to="/"
-    >
-      {title}
-    </Link>
+    <p className={titleHeaderClassName}>
+      <Link className="header-link-home header-home-second-header" to="/">
+        {title}
+      </Link>
+    </p>
   )
 }
 

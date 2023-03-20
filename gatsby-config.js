@@ -123,7 +123,6 @@ module.exports = {
         icon: `src/assets/icon.jpeg`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-use-dark-mode`,
-    `gatsby-plugin-material-ui`,
+    // `gatsby-plugin-use-dark-mode`,
   ],
 }
