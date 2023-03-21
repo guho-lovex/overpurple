@@ -10,7 +10,7 @@ import React from 'react'
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
 
-// import { minify } from 'terser'
+import { minify } from 'terser'
 
 const themeScript = `(function () {
 
@@ -58,13 +58,13 @@ const themeScript = `(function () {
   }
   setTheme(themeMode)
 })()`
-// const minifyJsCode = await minify(themeScript)
+
+const minifyJsCode = minify(themeScript).code || ``
 const MagicScriptTag = () => {
   return (
     <script
       dangerouslySetInnerHTML={{
-        // __html: minifyJsCode.code || ``,
-        __html: themeScript,
+        __html: minifyJsCode,
       }}
     />
   )
