@@ -1,48 +1,41 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { hasWindow } from '../config'
-
-export const COLORS_MODE_KEY = 'darkMode'
-
-export const enum ThemeModeType {
-  Dark = 'dark-mode',
-  Light = 'light-mode',
-}
+import { hasWindow, ThemeModeType } from '../config'
 
 export const ThemeContext = React.createContext<any>(null)
 
 export const ThemeProvider = ({ children }: any) => {
-  const [themeMode, rawSetThemeMode] = useState<string>()
-
-  const darkMode = hasWindow && window.localStorage.getItem(COLORS_MODE_KEY)
+  const [themeMode, setThemeMode] = useState<string>()
 
   useEffect(() => {
-    const initialMode =
-      darkMode === 'true' ? ThemeModeType.Dark : ThemeModeType.Light
+    const localDarkMode = window.localStorage.getItem('themeMode')
 
-    rawSetThemeMode(initialMode)
+    if (localDarkMode) {
+      setThemeMode(localDarkMode)
+    } else {
+      const isDarkMode = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches
+      setThemeMode(isDarkMode ? ThemeModeType.Dark : ThemeModeType.Light)
+    }
   }, [])
 
   const contextValue = useMemo(() => {
-    function setThemeMode(isDarkMode: boolean) {
-      hasWindow && window.localStorage.setItem(COLORS_MODE_KEY, `${isDarkMode}`)
-
-      const mode =
-        isDarkMode === true ? ThemeModeType.Dark : ThemeModeType.Light
-
-      document.body.className = window.__theme
-
-      rawSetThemeMode(window.__theme)
-
-      // TODO 需完成window注入，在控制台代码即可切换主题
-
-      return (window.__theme = mode)
+    const toggleTheme = (isDakMode: boolean) => {
+      const newTheme = !isDakMode ? ThemeModeType.Light : ThemeModeType.Dark
+      console.log('-------newTheme', newTheme)
+      setThemeMode(newTheme)
+      window.localStorage.setItem('themeMode', newTheme)
+      document.body.className = newTheme
+      if (hasWindow) {
+        window.__theme = newTheme
+      }
     }
 
     return {
       themeMode,
-      setThemeMode,
+      toggleTheme,
     }
-  }, [themeMode, rawSetThemeMode])
+  }, [themeMode, setThemeMode])
 
   return (
     <ThemeContext.Provider value={contextValue}>

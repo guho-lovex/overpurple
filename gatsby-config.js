@@ -8,7 +8,8 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  pathPrefix: '/overpurple.io/',
+  pathPrefix: '/overpurple.io',
+  trailingSlash: 'never',
   siteMetadata: {
     title: `Overpurple`,
     author: {
@@ -21,6 +22,7 @@ module.exports = {
   flags: {
     DEV_SSR: true,
   },
+  graphqlTypegen: 'true',
   plugins: [
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,

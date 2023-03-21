@@ -71,12 +71,6 @@
 
 /* HTML elements */
 
-*,
-:after,
-:before {
-  box-sizing: border-box;
-}
-
 html {
   line-height: var(--lineHeight-normal);
   font-size: var(--fontSize-root);
@@ -339,33 +333,33 @@ a:focus {
   }
 }
 
-body.dark-mode {
+body.dark {
   background-color: var(--theme-dark);
   color: var(--color-accent);
 }
 
-body.dark-mode h1 {
+body.dark h1 {
   color: var(--color-theme-dark);
 }
 
-body.dark-mode h2, h3, h4, h5, h6 {
+body.dark h2, h3, h4, h5, h6 {
   color: var(--color-h1-dark);
 }
 
-body.dark-mode a {
+body.dark a {
   color: var(--theme-purple-dark);
 }
 
-body.dark-mode .header-link-home {
+body.dark .header-link-home {
   font-size: var(--fontSize-4);
   color: var(--theme-purple-dark)
 }
 
-body.dark-mode p {
+body.dark p {
   font-size: var(--fontSize-1);
 }
 
-body.dark-mode blockquote {
+body.dark blockquote {
   color: var(--color-text-dark)
 }
 
@@ -378,7 +372,7 @@ body.dark-mode blockquote {
   margin-top: var(--spacing-8);
 }
 
-body.dark-mode .main-heading a {
+body.dark .main-heading a {
   color: var(--color-theme-dark);
 }
 

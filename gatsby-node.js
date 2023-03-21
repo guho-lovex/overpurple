@@ -124,3 +124,12 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `)
 }
+
+// custom webpack configure
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    experiments: {
+      topLevelAwait: true,
+    },
+  })
+}
