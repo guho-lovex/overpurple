@@ -22,10 +22,10 @@ export const ThemeProvider = ({ children }: any) => {
   const contextValue = useMemo(() => {
     const toggleTheme = (isDakMode: boolean) => {
       const newTheme = !isDakMode ? ThemeModeType.Light : ThemeModeType.Dark
-      console.log('-------newTheme', newTheme)
       setThemeMode(newTheme)
       window.localStorage.setItem('themeMode', newTheme)
       document.body.className = newTheme
+
       if (hasWindow) {
         window.__theme = newTheme
       }
