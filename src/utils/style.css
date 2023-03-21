@@ -69,6 +69,15 @@
   --color-text-dark: #9499a2;
 }
 
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
+  background: transparent !important;
+  color: var(--theme-purple-dark) !important;
+}
+
+.token.atrule, .token.attr-value, .token.keyword {
+  color: var(--theme-purple-dark) !important;
+}
+
 /* HTML elements */
 
 html {
@@ -382,4 +391,23 @@ body.dark .main-heading a {
 
 .bio .header-link-home.title-bio {
   display: block;
+}
+
+body
+code[class*="language-"], 
+pre[class*="language-"] {
+  background: var(--theme-dark);
+  color: #fff;
+  font-family: Consolas,Menlo,Monaco,source-code-pro,Courier New,monospace;
+  text-shadow: none !important;
+}
+
+body.light code[class*="language-"], 
+body.light pre[class*="language-"] {
+  background: var(--theme-dark);
+}
+
+body.dark code[class*="language-"], 
+body.dark pre[class*="language-"] {
+  background: var(--theme-dark-btn);
 }
