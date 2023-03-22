@@ -15,7 +15,7 @@ const NavHeader = ({ title, rootPath }: NavProps) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const isRootPath = window.location.pathname === rootPath + '/'
+      const isRootPath = window.location.pathname === rootPath
       const isDevPath = window.location.pathname === '/'
       const hiddenBioHeader = isRootPath || isDevPath
       const InsertClassName = hiddenBioHeader ? '' : 'title-bio'
