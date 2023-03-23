@@ -67,6 +67,8 @@
   --color-theme-dark: #ffffff;
   --theme-purple-dark: #e1a8fe;
   --color-text-dark: #9499a2;
+  --color-code-light-bg: rgba(235, 222, 246, 0.3);
+  --color-code-dark-bg: rgba(115,124,153,0.2);
 }
 
 .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
@@ -393,21 +395,25 @@ body.dark .main-heading a {
   display: block;
 }
 
-body
-code[class*="language-"], 
-pre[class*="language-"] {
-  background: var(--theme-dark);
-  color: #fff;
-  font-family: Consolas,Menlo,Monaco,source-code-pro,Courier New,monospace;
-  text-shadow: none !important;
+body.dark pre[class*="language-"] {
+  background: var(--color-code-dark-bg);
 }
 
-body.light code[class*="language-"], 
 body.light pre[class*="language-"] {
-  background: var(--theme-dark);
+  background: var(--color-code-light-bg);
 }
 
 body.dark code[class*="language-"], 
 body.dark pre[class*="language-"] {
-  background: var(--theme-dark-btn);
+  color: #fff;
+  text-shadow: none;
+}
+
+
+body.light code[class*="language-text"] {
+  background: var(--color-code-light-bg);
+}
+
+body.dark code[class*="language-text"] {
+  background: var(--color-code-dark-bg);
 }

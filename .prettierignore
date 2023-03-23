@@ -1,4 +1,15 @@
 .cache
 package.json
 package-lock.json
+/node_modules
 public
+src/blog/**
+*.log
+*.md
+*.svg
+*.png
+*ignore
+.DS_Store
+.idea
+.editorconfig
+.npmrc

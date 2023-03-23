@@ -17,12 +17,14 @@ module.exports = {
     `eslint:recommended`,
     `plugin:@typescript-eslint/recommended`, // 使用 @typescript-eslint/eslint-plugin 推荐配置
     `plugin:react/recommended`,
-    `plugin:prettier/recommended`,
+    `plugin:react-hooks/recommended`,
+    `plugin:prettier/recommended`, // 使用 prettier 中的样式规范，且如果使用 ESLint 会检测 prettier 的格式问题，同样将格式问题以 error 的形式抛出
   ],
   plugins: [
     `import`,
     `@typescript-eslint`, // 处理 TS 语法规则
     `react`,
+    `react-hooks`,
     `filenames`,
   ],
   globals: {
@@ -57,4 +59,4 @@ module.exports = {
     'react/no-unescaped-entities': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
   },
-}
+};
