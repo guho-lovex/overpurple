@@ -324,8 +324,8 @@ a:focus {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
 
-.blog-post header p {
-  font-size: var(--fontSize-2);
+main .blog-post header p {
+  font-size: var(--fontSize-0);
   font-family: var(--font-heading);
 }
 
@@ -420,4 +420,9 @@ body.light code[class*="language-text"] {
 
 body.dark code[class*="language-text"] {
   background: var(--color-code-dark-bg);
+}
+
+pre[class*="language-"] .token.property,  
+pre[class*="language-"] .token.boolean {
+  color: rgb(232, 79, 163);
 }
