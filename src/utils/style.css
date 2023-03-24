@@ -103,6 +103,10 @@ header {
   margin-bottom: var(--spacing-8);
 }
 
+section[itemprop="articleBody"] {
+  padding-bottom: var(--spacing-16)
+}
+
 footer {
   padding: var(--spacing-6) var(--spacing-0);
 }
@@ -152,6 +156,7 @@ h3 {
 }
 
 h4 {
+  margin-top: var(--spacing-10);
   font-size: var(--fontSize-3);
 }
 
@@ -198,6 +203,8 @@ ol {
 ul li,
 ol li {
   padding-left: var(--spacing-0);
+  margin-top: var(--spacing-1);
+  margin-bottom: var(--spacing-1);
 }
 
 li > p {
@@ -425,4 +432,9 @@ body.dark code[class*="language-text"] {
 pre[class*="language-"] .token.property,  
 pre[class*="language-"] .token.boolean {
   color: rgb(232, 79, 163);
+}
+
+.gatsby-resp-image-wrapper {
+  margin-top: var(--spacing-2);
+  margin-bottom: var(--spacing-1)
 }

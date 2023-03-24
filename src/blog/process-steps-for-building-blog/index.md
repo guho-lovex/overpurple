@@ -4,7 +4,7 @@ date: '2023-03-21T12:18:39.413Z'
 description: Process steps to build my blogs‘ site based on gatsby-starter-blog.
 ---
 
-在看到Dan的[overreact.io](https://overreacted.io/)时，我的眼睛瞬间被吸引，真是太优雅了，所以我迫不及待想搭建一个类似的博客网站。
+在看到Dan的[overreact.io](https://overreacted.io/)时，我的眼睛瞬间被吸引，优雅真是太优雅了，所以我迫不及待想搭建一个类似的博客网站。
 
 > 搭建需要的工具链
 > Gatsby 
@@ -120,3 +120,44 @@ module.exports = {
 @tailwind utilities;
 ```
 - yarn dev后就可以正常使用tailwindcss了
+
+#### 将本地搭建好的项目推送至github
+- 检查是否生成密钥
+ls有两个文件，id_rsa.pub就是公钥
+```s
+cd ~/.ssh
+ls
+```
+如果没有生成，则通过命令回车生成ssh key
+```s
+$ ssh-keygen -t rsa -C "github登录邮箱email@example.com"
+```
+github添加ssh：settings -> SSH and GPG KEYS, 点击New SSH key, 把id_rsa.pub的内容复制到key中
+
+- 然后在github上创建一个new github仓库
+- 在本地项目中创建一个git仓库
+```
+git init
+```
+提交本地代码至git
+```
+git add .
+git commit -m "XXX"
+```
+将main改至master
+```
+git branch -M master
+```
+将本地仓库关联到github上
+```
+git remote add origin 你的github仓库地址
+```
+将本地仓库所有内容推送至远程库
+```
+git push -u origin master
+```
+#### 创建黑暗模式
+这里详见另一篇博文：[The pursuit of perfect dark patterns](https://lovexueorangecat.github.io/overpurple.io/the-pursuit-of-perfect-dark-patterns)
+
+
+

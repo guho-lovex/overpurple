@@ -40,8 +40,6 @@ const themeScript = `(function () {
 
   const themeMode = getThemeMode()
 
-  console.log('-------themeMode-------', themeMode)
-
   let preferredTheme = themeMode 
 
   function setTheme(newTheme) {
