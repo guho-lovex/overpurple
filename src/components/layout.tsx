@@ -1,12 +1,12 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
-import { ToggleBtn } from './Toggle/Toggle'
-import { ThemeProvider } from './theme/ThemeContext'
+import * as React from 'react';
+import { Link } from 'gatsby';
+import { ToggleBtn } from './Toggle/Toggle';
+import { ThemeProvider } from './theme/ThemeContext';
 
 interface LayoutProps {
-  location?: Location
-  title?: string
-  children?: React.ReactNode
+  location?: Location;
+  title?: string;
+  children?: React.ReactNode;
 }
 
 export const HomeHeader: React.FC<{ title?: string }> = ({ title }) => {
@@ -17,11 +17,11 @@ export const HomeHeader: React.FC<{ title?: string }> = ({ title }) => {
       </h1>
       <ToggleBtn />
     </div>
-  )
-}
+  );
+};
 
 export const OtherPageHeader: React.FC<{
-  title?: string
+  title?: string;
 }> = ({ title }) => {
   return (
     <div className="flex items-center justify-between">
@@ -30,17 +30,17 @@ export const OtherPageHeader: React.FC<{
       </Link>
       <ToggleBtn />
     </div>
-  )
-}
+  );
+};
 
 const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
-  const rootPath = `/overpurple.io/`
-  const isRootPath = location?.pathname === rootPath
+  const rootPath = `/overpurple.io/`;
+  const isRootPath = location?.pathname === rootPath;
   const header = isRootPath ? (
     <HomeHeader title={title} />
   ) : (
     <OtherPageHeader title={title} />
-  )
+  );
 
   return (
     <ThemeProvider>
@@ -58,7 +58,7 @@ const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
         )}
       </div>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

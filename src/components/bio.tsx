@@ -5,20 +5,20 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
-import NavHeader from './nav'
+import * as React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
+import NavHeader from './nav';
 
 const Bio = () => {
-  const data = useStaticQuery(pageQuery)
+  const data = useStaticQuery(pageQuery);
   // Set these values by editing "siteMetadata" in gatsby-config.js
-  const rootPath = data.site?.pathPrefix
-  const title = data.site.siteMetadata?.title
-  const author = data.site.siteMetadata?.author
+  const rootPath = data.site?.pathPrefix;
+  const title = data.site.siteMetadata?.title;
+  const author = data.site.siteMetadata?.author;
   // const social = data.site.siteMetadata?.social
 
-  console.log('------rootPath', rootPath)
+  console.log('------rootPath', rootPath);
 
   return (
     <div className="bio">
@@ -54,8 +54,8 @@ const Bio = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   query BioQuery {
@@ -74,6 +74,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Bio
+export default Bio;

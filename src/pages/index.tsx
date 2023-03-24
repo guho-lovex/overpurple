@@ -1,20 +1,20 @@
-import * as React from 'react'
-import { Link, graphql } from 'gatsby'
+import * as React from 'react';
+import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio'
-import Layout from '../components/layout'
-import Seo from '../components/seo'
+import Bio from '../components/bio';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
 
 interface BlogIndexProps {
-  data: any
-  location: any
+  data: any;
+  location: any;
 }
 
 const BlogIndex = ({ data, location }: BlogIndexProps) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const siteTitle = data.site.siteMetadata?.title || `Title`;
+  const posts = data.allMarkdownRemark.nodes;
 
-  console.log('----------posts', posts)
+  console.log('----------posts', posts);
 
   if (posts.length === 0) {
     return (
@@ -26,7 +26,7 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
           gatsby-config.js).
         </p>
       </Layout>
-    )
+    );
   }
 
   return (
@@ -34,7 +34,7 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map((post: any) => {
-          const title = post.frontmatter.title || post.fields.slug
+          const title = post.frontmatter.title || post.fields.slug;
 
           return (
             <li key={post.fields.slug}>
@@ -61,21 +61,21 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
                 </section>
               </article>
             </li>
-          )
+          );
         })}
       </ol>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogIndex
+export default BlogIndex;
 
 /**
  * Head export to define metadata for the page
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="All posts" />
+export const Head = () => <Seo title="All posts" />;
 
 export const pageQuery = graphql`
   {
@@ -98,4 +98,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

@@ -4,13 +4,13 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/
  */
 
-import React from 'react'
+import React from 'react';
 
 /**
  * @type {import('gatsby').GatsbySSR['onRenderBody']}
  */
 
-import { minify } from 'terser'
+import { minify } from 'terser';
 
 const themeScript = `(function () {
 
@@ -57,9 +57,9 @@ const themeScript = `(function () {
     } catch (err) {}
   }
   setTheme(themeMode)
-})()`
+})()`;
 
-const minifyJsCode = minify(themeScript).code || ``
+const minifyJsCode = minify(themeScript).code || ``;
 const MagicScriptTag = () => {
   return (
     <script
@@ -67,10 +67,10 @@ const MagicScriptTag = () => {
         __html: minifyJsCode,
       }}
     />
-  )
-}
+  );
+};
 
 export function onRenderBody({ setHtmlAttributes, setPreBodyComponents }) {
-  setHtmlAttributes({ lang: `en` })
-  setPreBodyComponents(<MagicScriptTag />)
+  setHtmlAttributes({ lang: `en` });
+  setPreBodyComponents(<MagicScriptTag />);
 }

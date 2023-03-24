@@ -8,7 +8,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  pathPrefix: '/overpurple.io',
+  pathPrefix: '/',
   trailingSlash: 'never',
   siteMetadata: {
     title: `Overpurple`,
@@ -17,7 +17,7 @@ module.exports = {
       summary: `I record growth with code`,
     },
     description: `Overpurple.io`,
-    siteUrl: `https://lovexueorangecat.github.io/overpurple.io/`,
+    siteUrl: `https://lovexueorangecat.github.io/overpurple.io`,
   },
   flags: {
     DEV_SSR: true,
@@ -87,8 +87,8 @@ module.exports = {
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
                   custom_elements: [{ 'content:encoded': node.html }],
-                })
-              })
+                });
+              });
             },
             query: `{
               allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
@@ -127,4 +127,4 @@ module.exports = {
     },
     // `gatsby-plugin-use-dark-mode`,
   ],
-}
+};

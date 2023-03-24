@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
-import './toggle.css'
-import sunIcon from '../../assets/sun.png'
-import moonIcon from '../../assets/moon.png'
-import { ThemeContext } from '../theme/ThemeContext'
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import './toggle.css';
+import sunIcon from '../../assets/sun.png';
+import moonIcon from '../../assets/moon.png';
+import { ThemeContext } from '../theme/ThemeContext';
 
 interface ToggleSwitchButtonProps {
-  onChange?: (arg?: boolean) => void
+  onChange?: (arg?: boolean) => void;
   icon?: {
-    sun: React.ReactNode | React.ReactElement
-    dark: React.ReactNode | React.ReactElement
-  }
+    sun: React.ReactNode | React.ReactElement;
+    dark: React.ReactNode | React.ReactElement;
+  };
 }
 
 export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
@@ -19,36 +19,36 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
     sun: <img src={sunIcon} alt="" />,
   },
 }) => {
-  const inputRef = useRef<HTMLInputElement>(null)
-  const preCheckbox = useRef(false)
-  const [hasFocus, setHasFocus] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null);
+  const preCheckbox = useRef(false);
+  const [hasFocus, setHasFocus] = useState(false);
 
   useEffect(() => {
-    inputRef.current?.checked === preCheckbox.current
-  }, [preCheckbox])
+    inputRef.current?.checked === preCheckbox.current;
+  }, [preCheckbox]);
 
   const shadowClassName = useMemo(() => {
-    return hasFocus ? `switch-shadow` : ''
-  }, [hasFocus])
+    return hasFocus ? `switch-shadow` : '';
+  }, [hasFocus]);
 
   const handleClick = () => {
-    const checkbox = inputRef.current
-    onChange?.(checkbox?.checked)
-    preCheckbox.current = !!checkbox?.checked
+    const checkbox = inputRef.current;
+    onChange?.(checkbox?.checked);
+    preCheckbox.current = !!checkbox?.checked;
     if (preCheckbox.current === checkbox?.checked) {
-      checkbox?.focus()
-      checkbox?.click()
-      return
+      checkbox?.focus();
+      checkbox?.click();
+      return;
     }
-  }
+  };
 
   const handleBlur = () => {
-    setHasFocus(false)
-  }
+    setHasFocus(false);
+  };
 
   const handleFocus = () => {
-    setHasFocus(true)
-  }
+    setHasFocus(true);
+  };
 
   return (
     <>
@@ -68,11 +68,11 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export const ToggleBtn: React.FC<ToggleSwitchButtonProps> = () => {
-  const { toggleTheme } = useContext(ThemeContext)
+  const { toggleTheme } = useContext(ThemeContext);
 
-  return <ToggleSwitchButton onChange={toggleTheme}></ToggleSwitchButton>
-}
+  return <ToggleSwitchButton onChange={toggleTheme}></ToggleSwitchButton>;
+};
