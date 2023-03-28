@@ -147,3 +147,14 @@ src/html.js中
   dangerouslySetInnerHTML={{ __html: this.props.body }}
 />
 ```
+自定义javascript, 将我们的获取颜色设置颜色的脚本，放进`__html`中。
+```tsx
+<script
+  dangerouslySetInnerHTML={{
+    __html: `
+      var name = 'world';
+      console.log('Hello ' + name);
+    `,
+  }}
+/>
+```
