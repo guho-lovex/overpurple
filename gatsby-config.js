@@ -8,7 +8,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  pathPrefix: '/overpurple.io',
+  pathPrefix: '/overpurple.io/',
   trailingSlash: 'never',
   siteMetadata: {
     title: `Overpurple`,
