@@ -439,3 +439,7 @@ pre[class*="language-"] .token.boolean {
 .gatsby-highlight {
   border-radius: 10px;
 }
+
+.gatsby-image-wrapper img {
+  border-radius: 50%;
+}
