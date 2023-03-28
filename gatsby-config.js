@@ -8,7 +8,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  pathPrefix: '/overpurple.io',
+  pathPrefix: '/overpurple.io/',
   siteMetadata: {
     title: `Overpurple`,
     author: {
@@ -16,7 +16,7 @@ module.exports = {
       summary: `I record growth with code`,
     },
     description: `Overpurple.io`,
-    siteUrl: `https://lovexueorangecat.github.io/overpurple.io`,
+    siteUrl: `https://lovexueorangecat.github.io/overpurple.io/`,
   },
   flags: {
     DEV_SSR: true,

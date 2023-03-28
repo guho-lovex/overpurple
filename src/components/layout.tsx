@@ -34,7 +34,7 @@ export const OtherPageHeader: React.FC<{
 };
 
 const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
-  const rootPath = `/overpurple.io`;
+  const rootPath = `/overpurple.io/`;
   const isRootPath = location?.pathname === rootPath;
   const header = isRootPath ? (
     <HomeHeader title={title} />
