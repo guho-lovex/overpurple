@@ -15,13 +15,12 @@ const NavHeader = ({ title, rootPath }: NavProps) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const isRootPath = window.location.pathname === rootPath;
-      const isDevPath = window.location.pathname === '/';
-      const hiddenBioHeader = isRootPath || isDevPath;
+      const hiddenBioHeader =
+        window.location.pathname === rootPath + '/' ||
+        window.location.pathname === rootPath ||
+        window.location.pathname === '/';
 
       console.log('------rootPath', rootPath);
-      console.log('-------isRootPath', isRootPath);
-      console.log('-------isDevPath', isDevPath);
       console.log('-------hiddenBioHeader', hiddenBioHeader);
 
       const InsertClassName = hiddenBioHeader ? '' : 'title-bio';
