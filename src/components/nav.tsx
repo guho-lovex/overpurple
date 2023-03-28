@@ -31,7 +31,7 @@ const NavHeader = ({ title, rootPath }: NavProps) => {
   return (
     <div>
       <Link
-        className={`header-link-home header-home-second-header ${titleClassName}`}
+        className={`mb-8 header-link-home header-home-second-header ${titleClassName}`}
         to="/"
       >
         {title}

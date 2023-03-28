@@ -95,16 +95,12 @@ body {
   color: var(--color-text);
 }
 
-html .global-header {
-  margin-bottom: var(--spacing-16);
-}
-
 header {
   margin-bottom: var(--spacing-8);
 }
 
 section[itemprop="articleBody"] {
-  padding-bottom: var(--spacing-16)
+  padding-bottom: var(--spacing-8)
 }
 
 footer {
@@ -389,7 +385,6 @@ body.dark p {
 
 .dark-footer {
   display: flex;
-  margin-top: var(--spacing-8);
 }
 
 body.dark .main-heading a {
