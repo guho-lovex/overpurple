@@ -407,11 +407,13 @@ body.dark .main-heading a {
 body.dark pre[class*="language-"] {
   background: var(--color-code-dark-bg);
   font-size: var(--fontSize-0);
+  border-radius: inherit;
 }
 
 body.light pre[class*="language-"] {
   background: var(--color-code-light-bg);
   font-size: var(--fontSize-0);
+  border-radius: inherit;
 }
 
 body.dark code[class*="language-"], 
@@ -437,4 +439,8 @@ pre[class*="language-"] .token.boolean {
 .gatsby-resp-image-wrapper {
   margin-top: var(--spacing-2);
   margin-bottom: var(--spacing-1)
+}
+
+.gatsby-highlight {
+  border-radius: 10px;
 }

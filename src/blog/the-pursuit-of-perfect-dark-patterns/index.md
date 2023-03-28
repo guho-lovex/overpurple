@@ -129,4 +129,21 @@ function setTheme(newTheme) {
 ```
 请记住初始渲染发生在编译云中，因此最开始的themeMode一定是undefined，每个用户都会获得相同的HTML，这个html的复选框开始将始终未选中。我们最好的办法是推迟渲染切换，判断获取的themeMode不存在时就返回null，直到React应用程序知道themeMode是什么颜色。
 ##### 第二种：自定义 html.js
-不使用gatsby-ssr.js, 可以自己创建一个自定义html.js文件。[Customizing html.js](https://www.gatsbyjs.com/docs/custom-html/)
+不使用 gatsby-ssr.js 中的 api, 可以自己创建一个自定义 html.js 文件。[Customizing html.js](https://www.gatsbyjs.com/docs/custom-html/)
+gatsby使用react组件来处理gatsby core应用程序外部HTML的`<head>`和其他部分。大多数站点使用gatsby附带默认的 html.js。
+
+如果需要自定义站点的html.js，运行一下命令将默认的html.js复制到源代码中，然后根据需要进行修改：
+```node
+cp .cache/default-html.js src/html.js
+```
+> 当在 gatsby-ssr.js 中无法使用适当的 API 时，自定义 html.js 是一种变通解决方案。考虑使用 onRenderBody 或 onPreRenderHTML 代替上述
+
+如果您看到此错误：Uncaught Error: _registerComponent(...): Target container is not a DOM element。这意味着您的 html.js 缺少所需的“目标容器”。在你的 `<body>` 中，你必须有一个 id 为 `___gatsby` 的 div，例如：
+src/html.js中
+```tsx
+<div
+  key={`body`}
+  id="___gatsby"
+  dangerouslySetInnerHTML={{ __html: this.props.body }}
+/>
+```
