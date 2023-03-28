@@ -9,7 +9,6 @@
  */
 module.exports = {
   pathPrefix: '/overpurple.io',
-  trailingSlash: 'never',
   siteMetadata: {
     title: `Overpurple`,
     author: {
