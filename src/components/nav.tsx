@@ -19,6 +19,7 @@ const NavHeader = ({ title, rootPath }: NavProps) => {
       const isDevPath = window.location.pathname === '/';
       const hiddenBioHeader = isRootPath || isDevPath;
 
+      console.log('------rootPath', rootPath);
       console.log('-------isRootPath', isRootPath);
       console.log('-------isDevPath', isDevPath);
       console.log('-------hiddenBioHeader', hiddenBioHeader);

@@ -18,8 +18,6 @@ const Bio = () => {
   const author = data.site.siteMetadata?.author;
   // const social = data.site.siteMetadata?.social
 
-  console.log('------rootPath', rootPath);
-
   return (
     <div className="bio">
       <div>
