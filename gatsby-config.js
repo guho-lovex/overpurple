@@ -8,7 +8,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  pathPrefix: '/overpurple.io/',
+  pathPrefix: '/overpurple.io',
   trailingSlash: 'never',
   siteMetadata: {
     title: `Overpurple`,
@@ -121,7 +121,6 @@ module.exports = {
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
-        display: `minimal-ui`,
         icon: `src/assets/icon.jpeg`, // This path is relative to the root of the site.
       },
     },
