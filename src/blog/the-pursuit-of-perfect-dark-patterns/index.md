@@ -128,6 +128,8 @@ function setTheme(newTheme) {
   }
 ```
 请记住初始渲染发生在编译云中，因此最开始的themeMode一定是undefined，每个用户都会获得相同的HTML，这个html的复选框开始将始终未选中。我们最好的办法是推迟渲染切换，判断获取的themeMode不存在时就返回null，直到React应用程序知道themeMode是什么颜色。
+这里我们的脚本通过`terser`包来进行压缩。
+> 注意⚠️： terser的版本要小于5.x,因为5.x以上的版本的获取压缩后的code方法不一样。
 ##### 第二种：自定义 html.js
 不使用 gatsby-ssr.js 中的 api, 可以自己创建一个自定义 html.js 文件。[Customizing html.js](https://www.gatsbyjs.com/docs/custom-html/)
 gatsby使用react组件来处理gatsby core应用程序外部HTML的`<head>`和其他部分。大多数站点使用gatsby附带默认的 html.js。
