@@ -159,5 +159,19 @@ git push -u origin master
 #### 创建黑暗模式
 这里详见另一篇博文：[The pursuit of perfect dark patterns](https://lovexueorangecat.github.io/overpurple.io/the-pursuit-of-perfect-dark-patterns)
 
-
-
+本地仓库推到github仓库
+create a new repository on the command line
+```
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin github仓库ssh/https地址
+git push -u origin master
+```
+or push an existing repository from the command line
+```
+git remote add origin github仓库ssh/https地址
+git branch -M master
+git push -u origin master
+```
