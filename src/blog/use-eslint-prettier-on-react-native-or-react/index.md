@@ -246,7 +246,7 @@ npx npe scripts.prepare "husky install"
 执行`yarn prepare`就会在项目目录下生成`.husky`目录。
 再执行以下命令生成hook钩子`pre-commit`
 ```js
-npx husky add .husky/pre-commit "yarn run lint"
+npx husky add .husky/pre-commit "npx lint-staged"
 ```
 > ⚠️ 注意：window下不要使用node-16版本来执行这个命令，会报错。
 这个🐶会在commit的时候执行，执行的是 后面的引号部份`yarn run lint`
@@ -260,7 +260,7 @@ yarn add -D lint-staged
 {
   "scripts": {
     "prepare": "husky install",
-    "lint": "lint-staged"
+    "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
