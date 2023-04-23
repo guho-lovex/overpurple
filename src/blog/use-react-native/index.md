@@ -70,3 +70,45 @@ npx react-devtools
 react-devtools
 ```
 
+#### 使用自定义图标库[inconfont](https://www.iconfont.cn/)
+1. 下载iconfont图标文件，直接下载文件然后解压在本地。
+![image](../../assets//snipaste.png)
+将解压的文件放在项目`src/assets/fonts`目录下。
+react native 所需的图标其实只需要 `.ttf`文件就可以了。其余的文件直接删除。
+在`.json`文件中查看图标的`uniconde`，用来引用使用。
+
+2. link 字体图标文件到ios/android文件夹下
+> ⚠️ 注意：由于自动链接，链接和未链接命令(react-native autolink/link/unlink)已在React Native 0.69中删除，我们使用插件`react-native-asset`来自动链接。
+```shell
+yarn add -D react-native-asset
+```
+根目录下新建`react-native.config.js`,将存放字体图标的路径放入assets中
+```js
+module.exports = {
+  assets: ['./src/assets/fonts/'],
+};
+
+```
+然后
+使用`npx react-native-asset`来执行link字体库
+
+这里要注意⚠️，配置好了之后我们会在android和ios文件夹下看到如下更改
+![image](../../assets/Snipaste2.png)
+在`android/app/build.gradle`中添加如下code
+```js
+// 自定义的字体文件需要在这里赋值声明，如果有多个都需要添加到数组中
+project.ext.vectoricons = [
+    iconFontNames: [ 'iconfont.ttf' ]
+]
+```
+![image](../../assets/Snipaste3.png)
+
+最后重启编译运行项目 `yarn start --reset-cache`
+
+3.使用
+```js
+<Text style={{ fontFamily: 'iconfont' }}>{'\ue63e'}</Text>
+<Text style={{ fontFamily: 'iconfont' }}>{'\ue613'}</Text>
+<Text style={{ fontFamily: 'iconfont' }}>{'\ue7c1'}</Text>
+```
+
