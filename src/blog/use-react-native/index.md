@@ -46,3 +46,27 @@ module.exports = {
 yarn start --reset-cache
 ```
 `--reset-cache`是用来标记清除缓存的，一定要加上，不然配置不生效
+
+#### Debugger
+使用`react-devtools`工具 详情见[react-devtools](https://www.npmjs.com/package/react-devtools)
+安装
+```shell
+# Yarn
+yarn global add react-devtools
+or
+# NPM
+npm install -g react-devtools
+```
+如果您希望避免全局安装，则可以添加react-devtools为项目依赖项
+```shell
+yarn add --dev react-devtools
+```
+使用npm你可以使用npx
+```shell
+npx react-devtools
+```
+与react native 一起使用
+```shell
+react-devtools
+```
+
