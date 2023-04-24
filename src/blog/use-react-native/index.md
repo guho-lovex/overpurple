@@ -30,10 +30,8 @@ module.exports = {
     [
       'module-resolver',
       {
-        root: ['./src'],
-        extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
         alias: {
-          '*': ['./src'],
+          '@': './src',
         },
       },
     ],
@@ -46,6 +44,7 @@ module.exports = {
 yarn start --reset-cache
 ```
 `--reset-cache`是用来标记清除缓存的，一定要加上，不然配置不生效
+参考[reactnativeschool](https://www.reactnativeschool.com/how-to-setup-path-alias-in-a-react-native-typescript-app)
 
 #### Debugger
 使用`react-devtools`工具 详情见[react-devtools](https://www.npmjs.com/package/react-devtools)
