@@ -110,4 +110,20 @@ project.ext.vectoricons = [
 <Text style={{ fontFamily: 'iconfont' }}>{'\ue613'}</Text>
 <Text style={{ fontFamily: 'iconfont' }}>{'\ue7c1'}</Text>
 ```
+#### 使用createIconSet函数
+使用`react-native-vector-icons`中的`createIconSet`函数创建自定义图标组件
+```tsx
+import { createIconSet } from 'react-native-vector-icons';
+import glyphsMap from '@/utils/iconfontMap.json';
 
+const IconFont = createIconSet(glyphsMap, 'iconfont', 'iconfont.ttf');
+
+export default IconFont;
+```
+使用
+```tsx
+//导入组件
+import Icon from './js/common/IconFont';
+//使用组件
+<Icon name='icon_hot' size={20} color='lightgreen' />
+```
