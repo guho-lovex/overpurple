@@ -102,7 +102,14 @@ project.ext.vectoricons = [
 ```
 ![image](../../assets/Snipaste3.png)
 
-最后重启编译运行项目 `yarn start --reset-cache`
+当更改了`.ttf`字体文件后，需要重新启动应用
+```
+yarn ios
+or
+yarn android
+```
+最后重启编译运行项目 `yarn react-native start --reset-cache`
+> 如果添加文件后字体图标不显示，则重新启动应用然后再清缓存编译。
 
 3.使用
 ```js
