@@ -1,6 +1,6 @@
 ---
 title: ReactNative的开发使用
-date: "2023-04-19T08:43:48.977Z"
+date: "2023-04-19T08:43:49.977Z"
 description: 介绍开始使用reactnative的步骤及开发配置
 ---
 待续...
@@ -70,13 +70,13 @@ react-devtools
 ```
 
 #### 使用自定义图标库[inconfont](https://www.iconfont.cn/)
-1. 下载iconfont图标文件，直接下载文件然后解压在本地。
+##### 下载iconfont图标文件，直接下载文件然后解压在本地。
 ![image](../../assets//snipaste.png)
 将解压的文件放在项目`src/assets/fonts`目录下。
 react native 所需的图标其实只需要 `.ttf`文件就可以了。其余的文件直接删除。
 在`.json`文件中查看图标的`uniconde`，用来引用使用。
 
-2. link 字体图标文件到ios/android文件夹下
+##### link 字体图标文件到ios/android文件夹下
 > ⚠️ 注意：由于自动链接，链接和未链接命令(react-native autolink/link/unlink)已在React Native 0.69中删除，我们使用插件`react-native-asset`来自动链接。
 ```shell
 yarn add -D react-native-asset
