@@ -111,7 +111,7 @@ yarn android
 最后重启编译运行项目 `yarn react-native start --reset-cache`
 > 如果添加文件后字体图标不显示，则重新启动应用然后再清缓存编译。
 
-3.使用
+3. 使用
 ```js
 <Text style={{ fontFamily: 'iconfont' }}>{'\ue63e'}</Text>
 <Text style={{ fontFamily: 'iconfont' }}>{'\ue613'}</Text>
