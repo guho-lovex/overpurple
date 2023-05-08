@@ -134,3 +134,5 @@ import Icon from './js/common/IconFont';
 //使用组件
 <Icon name='icon_hot' size={20} color='lightgreen' />
 ```
+
+使用nodejs的Meteor框架进行服务端的全栈开发
