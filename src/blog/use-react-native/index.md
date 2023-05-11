@@ -135,4 +135,10 @@ import Icon from './js/common/IconFont';
 <Icon name='icon_hot' size={20} color='lightgreen' />
 ```
 
-使用nodejs的Meteor框架进行服务端的全栈开发
+对于 >= 0.60的 react native项目，在安装新依赖后不需要手动link
+> 参考 [集成到现有原生应用](https://reactnative.cn/docs/integration-with-existing-apps)
+只需`pod install`对于ios：
+```shell
+cd ios
+pod install
+```
