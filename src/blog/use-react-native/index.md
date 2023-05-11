@@ -135,9 +135,15 @@ import Icon from './js/common/IconFont';
 <Icon name='icon_hot' size={20} color='lightgreen' />
 ```
 
-对于 >= 0.60的 react native项目，在安装新依赖后不需要手动link
+
+React Native 的原生依赖项通常是指针对特定平台的本地代码（例如 iOS 和 Android），并且需要在编译应用程序时进行链接。在过去，处理原生依赖项通常需要手动设置和配置，但现在 React Native CLI 已经实现了自动链接功能，使得处理原生依赖项更加简便。
+
+具体来说，React Native CLI 通过检测您的项目中的原生代码和依赖项，自动将它们链接到您的应用程序中。您无需手动设置或更改任何配置文件。
+
+在使用 React Native CLI 时，您只需要在您的项目中安装所需的依赖项，React Native CLI 就会自动链接这些依赖项。您可以在您的代码中轻松使用这些依赖项，并在编译应用程序时自动包含它们的原生代码。
+
 > 参考 [集成到现有原生应用](https://reactnative.cn/docs/integration-with-existing-apps)
-只需`pod install`对于ios：
+组件安装后报错需`pod install`对于ios：
 ```shell
 cd ios
 pod install
