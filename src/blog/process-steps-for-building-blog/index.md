@@ -176,3 +176,73 @@ git branch -M master
 git push -u origin master
 ```
 srr serve与client 页面路径不匹配时（没有正确水合 hydrate ），这导致 gatsby develop 和 gatsby build 不一致。排查是否使用了window及其的方法，如果有，我们需要将获取放在useEffect中，保证代码不会执行，除非在浏览器中。详见：[Debugging HTML Builds]('https://www.gatsbyjs.com/docs/debugging-html-builds/')
+#### 使用Github Actions自动化部署
+Github Actions是github提供的免费的自动化构建部署，用于构建、测试和部署应用代码的平台
+
+在仓库中设置Github Actions
+点击仓库中的Actions选项卡，点击set up workflow yourself,如图所示
+![image](../../assets/image2.png)
+会自动在根目录下创建一个`.github/workflows/main.yml`文件，我们可以修改文件名为`overpurple.yml`
+![Alt text](../../assets/image3.png)
+在[Github Actions市场](https://github.com/marketplace?type=actions)有很多预制的action，这里我们选择的是里的Gatsby Publish Node16
+![Alt text](../../assets/image.png)
+点击Gatsby Publish Node16进去，我们将里面的使用代码粘贴进项目的`overpurple.yml`文件中保存。修改为下面code
+```yml
+name: Overpurple Gatsby Publish
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Gatsby Publish Node16
+      uses: Xstoudi/gatsby-gh-pages-action@v3.0.0
+    # - uses: enriikke/gatsby-gh-pages-action@v2
+      with:
+        access-token: ${{ secrets.OVERPURPLE }}
+        deploy-branch: gh-pages
+        gatsby-args: --prefix-paths
+```
+这样就设置了工作流，它将根据yaml文件中定义的触发器运行。然后我push到仓库中，在每次代码提交master后就会触发actions
+> 这里我们可以遵循一些简单技巧，选择创建适合我们自己的actions
+> - 了解问题，在开始构建前，我们确保要解决的问题以及如何解决。
+> - 选择正确的技术栈：如使用javascript或 Docker 编写github actions。
+> - 利用已有的软件包，如 @actions/core 和 @actions/github，它们提供了与 GitHub Actions 环境和 GitHub API 的简单互动。
+> - 在成功创建自己的工作流程后，你有可能想要发布它。无论你是否发布，请确保测试你的 action 是否有潜在的问题或错误。
+关于创建自定义action：可参考[官方文档](https://docs.github.com/en/actions/creating-actions)提供的详细信息
+
+* github actions组件介绍
+github actions主要由三个主要组件组成：工作流（Workflows）、事件(Events)、任务(Jobs)
+- Workflows：定义自动化过程的规则集，它们在 YAML 文件中定义，该文件存储在 .github/workflows 目录中
+- Events: 启动工作流。例如，你可以将事件设置为在创建PR或新开issie是运行工作流。要在工作流中定义时间，使用关键字on后跟事件名称
+```yml
+on:
+    issues:
+        types: [opened]
+    pull_request_target:
+        types: [opened]
+```
+- Jobs: 构成工作流程。默认情况下，任务是同时运行的。要在给定的工作流中定义你的任务，使用关键字jobs，后跟每个人物及其配置的唯一标识符
+```yml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+```
+如何实现代码QA的自动化，参考文章：[如何使用 GitHub Actions 实现开源项目的自动化](https://www.freecodecamp.org/chinese/news/automate-open-source-projects-with-github-actions/)
