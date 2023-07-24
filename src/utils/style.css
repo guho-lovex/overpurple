@@ -426,9 +426,12 @@ body.dark code[class*="language-text"] {
   background: var(--color-code-dark-bg);
 }
 
-pre[class*="language-"] .token.property,  
+pre[class*="language-"] .token.property {
+  color: rgb(170, 56, 219);
+}  
 pre[class*="language-"] .token.boolean {
   color: rgb(232, 79, 163);
+ 
 }
 
 .gatsby-resp-image-wrapper {
@@ -447,4 +450,8 @@ pre[class*="language-"] .token.boolean {
 p > .gatsby-resp-image-wrapper {
   width: 30%;
   margin-left: 0 !important; 
+}
+
+language-json .token.operator {
+  color: rgb(137, 23, 186);
 }
