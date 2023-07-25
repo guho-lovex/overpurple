@@ -1,7 +1,7 @@
 ---
-title: 在React/ReactNative中使用ESLint，Prettier
+title: Code beautification and commit validation in React or React Native
 date: "2023-04-19T08:43:48.977Z"
-description: 在react native项目中配置eslint\prettier\husky\lint-staged
+description: Config eslint\prettier\husky\lint-staged in the react native project
 ---
 
 ### 概括

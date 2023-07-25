@@ -1,7 +1,7 @@
 ---
-title: ReactNative的开发使用
+title: The development and use of ReactNative
 date: "2023-04-19T08:43:49.977Z"
-description: 介绍开始使用reactnative的步骤及开发配置
+description: Introduce the steps and development configuration to start using react native
 ---
 待续...
 #### react native 中使用别名alias
