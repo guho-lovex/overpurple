@@ -347,3 +347,7 @@ summary {
 [hidden] {
   display: none;
 }
+
+ol, ul, menu {
+  list-style: revert;
+}

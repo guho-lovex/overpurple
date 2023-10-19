@@ -20,9 +20,6 @@ const NavHeader = ({ title, rootPath }: NavProps) => {
         window.location.pathname === rootPath ||
         window.location.pathname === '/';
 
-      console.log('------rootPath', rootPath);
-      console.log('-------hiddenBioHeader', hiddenBioHeader);
-
       const InsertClassName = hiddenBioHeader ? '' : 'title-bio';
       setClassName(InsertClassName);
     }

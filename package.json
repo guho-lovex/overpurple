@@ -3,6 +3,28 @@
   "private": true,
   "description": "Overpurlple",
   "version": "0.1.0",
+  "scripts": {
+    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "dev": "gatsby develop",
+    "develop": "yarn prepare && check-type && gatsby develop",
+    "start": "yarn dev",
+    "build": "tsc && rm -rf public && rm -rf .cache && gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "lint": "eslint --ext js,jsx,ts,tsx .",
+    "check-type": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovexueorangecat/overpurple.io.git"
+  },
   "engines": {
     "node": ">=18"
   },
@@ -53,27 +75,5 @@
     "react",
     "overpurple"
   ],
-  "license": "0BSD",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lovexueorangecat/overpurple.io.git"
-  },
-  "scripts": {
-    "prepare": "husky install",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "dev": "gatsby develop",
-    "develop": "yarn prepare && check-type && gatsby develop",
-    "start": "yarn dev",
-    "build": "tsc && rm -rf public && rm -rf .cache && gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "lint": "eslint --ext js,jsx,ts,tsx .",
-    "check-type": "tsc --noEmit"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ]
-  }
+  "license": "0BSD"
 }

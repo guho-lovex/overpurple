@@ -26,9 +26,10 @@ const Bio = () => {
       <div className="dark-footer">
         <StaticImage
           className="bio-avatar"
+          // layout="constrained"
           layout="fixed"
           formats={['auto', 'webp', 'avif']}
-          src="../assets/icon.jpeg"
+          src="../assets/feng.jpeg"
           width={50}
           height={50}
           quality={95}
@@ -64,6 +65,7 @@ export const pageQuery = graphql`
         author {
           name
           summary
+          author_avatar
         }
         social {
           twitter

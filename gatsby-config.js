@@ -14,6 +14,7 @@ module.exports = {
     author: {
       name: `lovex`,
       summary: `I record growth with code`,
+      author_avatar: `../assets/feng.jpeg`,
     },
     description: `Overpurple.io`,
     siteUrl: `https://lovexueorangecat.github.io/overpurple.io`,
@@ -120,7 +121,7 @@ module.exports = {
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
-        icon: `src/assets/icon.jpeg`, // This path is relative to the root of the site.
+        icon: `src/assets/feng.jpeg`, // This path is relative to the root of the site.
       },
     },
     // `gatsby-plugin-use-dark-mode`,
