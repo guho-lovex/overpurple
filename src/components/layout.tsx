@@ -23,6 +23,14 @@ export const HomeHeader: React.FC<{ title?: string }> = ({ title }) => {
 export const OtherPageHeader: React.FC<{
   title?: string;
 }> = ({ title }) => {
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const allCodeNode = window.document.querySelectorAll(
+        'code[class*="language-"]'
+      );
+      console.log('-----allCodeNode', allCodeNode);
+    }
+  }, []);
   return (
     <div className="flex items-center justify-between">
       <Link className="header-link-home" to="/">

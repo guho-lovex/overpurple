@@ -68,7 +68,16 @@ const MagicScriptTag = () => {
   );
 };
 
-export function onRenderBody({ setHtmlAttributes, setPreBodyComponents }) {
+const postCopyClipboard = () => {
+  return <>11111</>;
+};
+
+export function onRenderBody({
+  setHtmlAttributes,
+  setPreBodyComponents,
+  setPostBodyComponents,
+}) {
   setHtmlAttributes({ lang: `en` });
   setPreBodyComponents(<MagicScriptTag />);
+  setPostBodyComponents(postCopyClipboard);
 }

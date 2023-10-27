@@ -11,7 +11,7 @@ type DataProps = {
   };
 };
 
-const UsingTypescript: React.FC<PageProps<DataProps>> = ({
+const BlogPostTemplate: React.FC<PageProps<DataProps>> = ({
   data,
   path,
   location,
@@ -44,7 +44,7 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({
 
 export const Head: HeadFC<DataProps> = () => <Seo title="Using TypeScript" />;
 
-export default UsingTypescript;
+export default BlogPostTemplate;
 
 export const query = graphql`
   {

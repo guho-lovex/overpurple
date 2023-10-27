@@ -13,7 +13,7 @@ module.exports = {
     title: `Overpurple`,
     author: {
       name: `lovex`,
-      summary: `I record growth with code`,
+      summary: `Recording Life and code growth`,
       author_avatar: `../assets/feng.jpeg`,
     },
     description: `Overpurple.io`,
@@ -56,7 +56,12 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              copy: true,
+            },
+          },
         ],
       },
     },
@@ -118,12 +123,8 @@ module.exports = {
         short_name: `Overpurple`,
         start_url: `/`,
         background_color: `#ffffff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         icon: `src/assets/feng.jpeg`, // This path is relative to the root of the site.
       },
     },
-    // `gatsby-plugin-use-dark-mode`,
   ],
 };

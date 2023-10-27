@@ -6,9 +6,24 @@ description: An article summarizing the front-end advanced interview questions t
 
 这是一篇汇总前端进阶面试题的文章，希望我能将这些知识汇总到这里，让自己看到后能更加的了解和熟悉这类知识点。
 
-## 浏览器Event Loop
+<details open>
+<summary>
+
+## Js事件循环(Event Loop)
+</summary>
+
+
+<details>
+<summary>
+
+### 浏览器Event Loop
+</summary>
+
+
 JavaScript 有一个基于事件循环（event loop）的并发模型，事件循环负责执行代码、收集和处理事件以及执行队列的子任务。
+
 > javaScript 的运行机制
+
 1. 所有同步任务都在主线程上执行，形成一个**执行栈**
 2. 主线程外还有一个 <strong>任务队列</strong>。只要异步任务有了运行结果，就在任务队列中放置一个事件
 3. 在 执行栈 中的所有同步任务执行完毕，就会读取 任务队列，看看里面有哪些事件。那些对应的异步任务于是结束等待状态，进入执行栈开始执行。
@@ -51,7 +66,7 @@ new Promise(resolve => {
   .then(function() {
     console.log('promise1')
   })
-  .then(function() {z
+  .then(function() {
     console.log('promise2')
   })
 
@@ -65,6 +80,7 @@ console.log('script end')
 // async1 end 
 // promise1 
 // promise2 
+// undefined
 // setTimeout
 ```
 为什么会出现上面的顺序问题呢？原因是浏览器会根据任务性质不同，将不同的任务源塞进不同的队列中，由于任务源会分为微任务和宏任务，浏览器对两种不同任务源队列中的毁掉函数的读取机制不同（浏览器 event loop 执行机制），造成上述代码的顺序问题。
@@ -174,6 +190,17 @@ console.log('script end');
 
 > 结尾：为什么需要 event loop？
 因为 javascript 是单线程的，这就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。如果前一个任务耗时比较长的话，后一个任务就不得不一直等着。为了协调事件（event）、用户交互（user interaction）、脚本（script）、渲染（rendering）、网络（networking）等，用户代理（user agent）必须使用事件循环（event loops）
+</details>
+
+<details>
+<summary>
+
+### NodeJs 中的事件循环
+</summary>
+待续...
+
+</details>
+</details>
 
 
 

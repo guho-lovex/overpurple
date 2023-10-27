@@ -433,10 +433,12 @@ body.dark pre[class*="language-"] {
 
 body.light code[class*="language-text"] {
   background: var(--color-code-light-bg);
+  font-style: italic;
 }
 
 body.dark code[class*="language-text"] {
   background: var(--color-code-dark-bg);
+  font-style: italic;
 }
 
 body.light .token.atrule, body.light .token.attr-value, body.light .token.keyword  {
@@ -475,4 +477,35 @@ p > .gatsby-resp-image-wrapper {
 
 language-json .token.operator {
   color: rgb(137, 23, 186);
+}
+
+section>details>summary:nth-child(1) {
+  margin-bottom: var(--spacing-10);
+}
+
+summary {
+  margin-left: calc(-1 * var(--spacing-6));
+  margin-bottom: var(--spacing-4);
+}
+
+summary:hover {
+  cursor: pointer;
+}
+
+details details {
+  margin-bottom: var(--spacing-6);
+}
+
+details>details>summary {
+  margin-left: calc(-1 * var(--spacing-1));
+}
+
+summary h1,summary h2,summary h3,summary h4,summary h5,summary h6 {
+  margin-top: var(--spacing-6);
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+summary h3,summary h4,summary h5,summary h6 {
+  margin-top: var(--spacing-0);
 }
