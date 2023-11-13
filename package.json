@@ -58,6 +58,7 @@
     "terser": "4.6.11"
   },
   "devDependencies": {
+    "@types/react": "^18.2.37",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "autoprefixer": "^10.4.14",
