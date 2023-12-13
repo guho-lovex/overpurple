@@ -1,7 +1,7 @@
 ---
 title: Interview Topic
 date: "2023-10-17T08:55:54.901Z"
-description: An article summarizing the front-end advanced interview questions that was helpful to me
+description: the front-end advanced interview questions
 ---
 
 这是一篇汇总前端进阶面试题的文章，希望我能将这些知识汇总到这里，让自己看到后能更加的了解和熟悉这类知识点。
@@ -13,7 +13,7 @@ description: An article summarizing the front-end advanced interview questions t
 </summary>
 
 
-<details>
+<details open>
 <summary>
 
 ### 浏览器Event Loop

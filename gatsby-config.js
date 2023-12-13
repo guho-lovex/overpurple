@@ -12,12 +12,12 @@ module.exports = {
   siteMetadata: {
     title: `Overpurple`,
     author: {
-      name: `lovex`,
-      summary: `Recording Life and code growth`,
-      author_avatar: `../assets/feng.jpeg`,
+      name: `GuHo`,
+      summary: `Record`,
+      author_avatar: `../assets/xiaolan.png`,
     },
     description: `Overpurple.io`,
-    siteUrl: `https://lovexueorangecat.github.io/overpurple.io`,
+    siteUrl: `https://guho-lovex.github.io/overpurple.io/`,
   },
   flags: {
     DEV_SSR: true,
@@ -123,7 +123,7 @@ module.exports = {
         short_name: `Overpurple`,
         start_url: `/`,
         background_color: `#ffffff`,
-        icon: `src/assets/feng.jpeg`, // This path is relative to the root of the site.
+        icon: `src/assets/xiaolan.png`, // This path is relative to the root of the site.
       },
     },
   ],

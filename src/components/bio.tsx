@@ -29,7 +29,7 @@ const Bio = () => {
           // layout="constrained"
           layout="fixed"
           formats={['auto', 'webp', 'avif']}
-          src="../assets/feng.jpeg"
+          src="../assets/xiaolan.png"
           width={50}
           height={50}
           quality={95}
@@ -40,7 +40,7 @@ const Bio = () => {
             <>
               Personal blog by &nbsp;
               <a
-                href={`https://github.com/lovexueorangecat/overpurple.io`}
+                href={`https://github.com/guho-lovex`}
                 target="_blank"
                 rel="noreferrer"
               >
