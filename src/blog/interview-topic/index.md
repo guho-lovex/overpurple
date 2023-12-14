@@ -192,12 +192,22 @@ console.log('script end');
 因为 javascript 是单线程的，这就意味着，所有任务需要排队，前一个任务结束，才会执行后一个任务。如果前一个任务耗时比较长的话，后一个任务就不得不一直等着。为了协调事件（event）、用户交互（user interaction）、脚本（script）、渲染（rendering）、网络（networking）等，用户代理（user agent）必须使用事件循环（event loops）
 </details>
 
-<details>
+<details open>
 <summary>
 
-### NodeJs 中的事件循环
+### NodeJS 中的事件循环
 </summary>
-待续...
+
+NodeJS 中也是循环+任务队列的流程以及微任务优先于宏任务，大致表现和浏览器一致的。不过它与浏览器也有一些差异，并且新增了一些任务类型和任务阶段。下面我们来了解下 NodeJS 中的时间循环流程。
+
+> NodeJS 中的异步方法
+
+因为都是基于 V8 引擎，浏览器包含的异步方式在 NodeJS 中也是一样的。另外 NodeJS 中还有一些其他的常见异步形式：
+- 文件 I/O： 异步加载本地文件
+- setImmediate()：与 setTimeout 设置 0ms 类似，在某些同步任务完成后立马执行。
+- process.nextTick()： 在某些同步任务完成后立马执行。
+- server.close、socket.on/socket.close 等：关闭回调。
+
 
 </details>
 </details>

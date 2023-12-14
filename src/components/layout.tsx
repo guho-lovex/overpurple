@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import { ToggleBtn } from './Toggle/Toggle';
 import { ThemeProvider } from './theme/ThemeContext';
@@ -40,7 +40,6 @@ export const OtherPageHeader: React.FC<{
     </div>
   );
 };
-
 const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
   const rootPath = `/overpurple.io/`;
   const isRootPath = location?.pathname === rootPath;
@@ -50,20 +49,88 @@ const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
     <OtherPageHeader title={title} />
   );
 
+  const transformVNode = (children: any): any => {
+    if (children == null || typeof children !== 'object') {
+      return null;
+    }
+    if (Array.isArray(children)) {
+      return children.map(transformVNode);
+    }
+    const { type, props, ...restProps } = children;
+    if (typeof type === 'string') {
+      const { children: propsChildren, ...rest } = props;
+      if (Array.isArray(propsChildren)) {
+        const vNodeChildren = propsChildren.map(x => {
+          const childProps = x?.props;
+          const childNode = childProps?.children;
+          const grandChildProps = childNode?.props;
+          const grandChildNode = childNode?.props?.children;
+
+          if (Array.isArray(grandChildNode)) {
+            const grandson = grandChildNode.filter(
+              cur => cur.type === 'header'
+            );
+            const outlineTextNode = grandson[0]?.props?.children?.filter(
+              (cur: any) => cur.type === 'h2'
+            );
+
+            const grandsonNode = {
+              ...grandson[0],
+              props: {
+                ...grandson[0].props,
+                children: {
+                  ...outlineTextNode[0],
+                  type: 'p',
+                },
+              },
+            };
+
+            return {
+              ...x,
+              props: {
+                ...childProps,
+                children: {
+                  ...childNode,
+                  props: {
+                    ...grandChildProps,
+                    children: grandsonNode,
+                  },
+                },
+              },
+            };
+          }
+        });
+
+        console.log('00000000vNode', vNodeChildren);
+
+        return {
+          type,
+          props: { ...rest, children: vNodeChildren },
+          ...restProps,
+        };
+      }
+    }
+  };
+
+  const outlineData = transformVNode(children);
+
   return (
     <ThemeProvider>
-      <div className="global-wrapper" data-is-root-path={isRootPath}>
-        <header className="global-header">{header}</header>
-        <main>{children}</main>
-        {isRootPath && (
-          <footer>
-            <a href="https://juejin.cn/user/4283353029944296">掘金</a>
-            <> • </>
-            <a href="https://github.com/lovexueorangecat/overpurple.io">
-              github
-            </a>
-          </footer>
-        )}
+      <div className="flex">
+        {!isRootPath && <div className="w-2/6">{outlineData}</div>}
+        <div className="global-wrapper flex-1" data-is-root-path={isRootPath}>
+          <header className="global-header">{header}</header>
+          <main>{children}</main>
+          {isRootPath && (
+            <footer>
+              <a href="https://juejin.cn/user/4283353029944296">掘金</a>
+              <> • </>
+              <a href="https://github.com/lovexueorangecat/overpurple.io">
+                github
+              </a>
+            </footer>
+          )}
+        </div>
       </div>
     </ThemeProvider>
   );
