@@ -117,19 +117,21 @@ const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
   return (
     <ThemeProvider>
       <div className="flex">
-        {!isRootPath && <div className="w-2/6">{outlineData}</div>}
-        <div className="global-wrapper flex-1" data-is-root-path={isRootPath}>
-          <header className="global-header">{header}</header>
-          <main>{children}</main>
-          {isRootPath && (
-            <footer>
-              <a href="https://juejin.cn/user/4283353029944296">掘金</a>
-              <> • </>
-              <a href="https://github.com/lovexueorangecat/overpurple.io">
-                github
-              </a>
-            </footer>
-          )}
+        {<div className="flex w-1/5 p-4">{outlineData}</div>}
+        <div className="flex-1">
+          <div className="global-wrapper" data-is-root-path={isRootPath}>
+            <header className="global-header">{header}</header>
+            <main>{children}</main>
+            {isRootPath && (
+              <footer>
+                <a href="https://juejin.cn/user/4283353029944296">掘金</a>
+                <> • </>
+                <a href="https://github.com/lovexueorangecat/overpurple.io">
+                  github
+                </a>
+              </footer>
+            )}
+          </div>
         </div>
       </div>
     </ThemeProvider>
