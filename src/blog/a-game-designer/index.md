@@ -4,6 +4,8 @@ date: "2023-11-24T16:09:08.169Z"
 description: Pertinent advice
 ---
 
+> 说得特别好，中肯并直击人心。转载自 https://cowlevel.net/article/2035660
+
 我的朋友，年轻的你因想成为一名游戏设计师来征询我的意见。我会给你我认为是最好的建议，但却很担心你会反感我的意见而去接受那些别人告诉你的你愿意听到的话。不过与我来说这没什么——我想做的只是讲出真相，希望有一些人知道它就行了。
 </br>
 </br>
@@ -58,5 +60,3 @@ description: Pertinent advice
 </br>
 
 ***"I have heard a lot of truth, but I still have a bad life."***
-
-> 觉得说得特别好，直击人心。转载自 https://cowlevel.net/article/2035660
