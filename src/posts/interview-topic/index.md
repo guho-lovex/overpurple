@@ -22,7 +22,7 @@ description: the front-end advanced interview questions
 
 JavaScript 有一个基于事件循环（event loop）的并发模型，事件循环负责执行代码、收集和处理事件以及执行队列的子任务。
 
-> javaScript 的运行机制
+#### JavaScript 的运行机制
 
 1. 所有同步任务都在主线程上执行，形成一个**执行栈**
 2. 主线程外还有一个 <strong>任务队列</strong>。只要异步任务有了运行结果，就在任务队列中放置一个事件
@@ -32,7 +32,7 @@ JavaScript 有一个基于事件循环（event loop）的并发模型，事件�
 
 <br> **一个事件循环中有一个或多个任务队列**
 
-> javaScript 中有两种异步任务
+#### javaScript 中有两种异步任务
 1. **宏任务**（macrotask）：
 script（整体代码）、setTimeout、setInterval、setImmediate、I/O、UI rendering、xhr
 
@@ -110,7 +110,7 @@ function async2() {
 - 自此，第一轮的事件循环Tick中的任务执行完成，开始执行下一个循环中的微任务队列。检查微任务队列，发现有3个微任务，依次是：console.log('async1 end')、console.log('promise1')、console.log('promise2') ，于是 event loop 会将这三个回调以此取到主线程执行，输出 async1 end、 promise1、promise2。
 - 此时 microtask 队列为空，浏览器开始重新渲染（如果有 DOM操作的话），然后再次启动新的事件循环 tick，检查宏任务队列中有个 setTimeout，立即执行输出 setTimeout。
 
-> 什么是 event loop？
+#### 什么是 event loop？
 js event loop 即是事件循环，是运行在浏览器环境/Node 环境中的一种消息通信机制，它是主线程之外的独立线程。
 当主线程内需要执行某些可能导致线程阻塞的耗时操作时（比如请求发送与接收响应、文件 I/O、数据计算）主线程会注册一个回调函数并抛给 event loop线程进行监听，自己则继续往下执行，一旦消息返回并且主线程空闲的情况下，event loop 会及时通知主线程，执行对应的回调函数获取信息，以此达到非阻塞的目的。<br>
 简而言之，主线程从 “任务队列”中读取执行事件，这个过程是循环不断的，这个机制被称为事件循环。（主线程会不断从任务队列中按顺序取任务执行，每执行完一个任务都会检查 microtask 队列是否为空（执行完一个任务的具体标志是函数执行栈为空）， 如果不为空则会一次性执行完所有的 microtask，然后再进入下一个循环去任务队列中取下个任务执行。）
@@ -200,7 +200,7 @@ console.log('script end');
 
 NodeJS 中也是循环+任务队列的流程以及微任务优先于宏任务，大致表现和浏览器一致的。不过它与浏览器也有一些差异，并且新增了一些任务类型和任务阶段。下面我们来了解下 NodeJS 中的时间循环流程。
 
-> NodeJS 中的异步方法
+#### NodeJS 中的异步方法
 
 因为都是基于 V8 引擎，浏览器包含的异步方式在 NodeJS 中也是一样的。另外 NodeJS 中还有一些其他的常见异步形式：
 - 文件 I/O： 异步加载本地文件

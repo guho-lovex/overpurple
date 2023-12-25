@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import NavHeader from './nav';
 
-const Bio = () => {
+const BioHeader = () => {
   const data = useStaticQuery(pageQuery);
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const rootPath = data.site?.pathPrefix;
@@ -76,4 +76,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default Bio;
+export default BioHeader;

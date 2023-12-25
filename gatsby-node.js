@@ -9,7 +9,7 @@ const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 // Define the template for blog post
-const blogPost = path.resolve(`./src/templates/blog-post.js`);
+const blogPost = path.resolve(`./src/components/blogPostLayout.tsx`);
 
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
@@ -30,8 +30,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `);
-
-  console.log('--------result', result);
 
   if (result.errors) {
     reporter.panicOnBuild(
@@ -73,12 +71,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+    const slug = createFilePath({ node, getNode, basePath: 'posts' });
 
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: slug,
     });
   }
 };

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio';
-import Layout from '../components/layout';
+import { Layout } from '../components/layout';
 import Seo from '../components/seo';
+import BioHeader from '../components/bioHeader';
 
 interface BlogIndexProps {
   data: any;
@@ -17,7 +17,7 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Bio />
+        <BioHeader />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -29,7 +29,7 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Bio />
+      <BioHeader />
       <ol style={{ listStyle: `none` }}>
         {posts.map((post: any) => {
           const title = post.frontmatter.title || post.fields.slug;
@@ -56,6 +56,7 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
                     }}
                     itemProp="description"
                   />
+                  {/* <p>{post.frontmatter.description || post.excerpt}</p> */}
                 </section>
               </article>
             </li>

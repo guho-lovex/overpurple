@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio';
-import Layout from '../components/layout';
-import Seo from '../components/seo';
+import BioHeader from './bioHeader';
+import { Layout } from './layout';
+import Seo from './seo';
 
-const BlogPostTemplate = ({
+const BlogPostLayout = ({
   data: { previous, next, site, markdownRemark: post },
   location,
-}) => {
+}: any) => {
   const siteTitle = site.siteMetadata?.title || `Title`;
 
   return (
@@ -28,7 +28,7 @@ const BlogPostTemplate = ({
         />
         <hr />
         <footer>
-          <Bio />
+          <BioHeader />
         </footer>
       </article>
       <nav className="blog-post-nav">
@@ -61,7 +61,7 @@ const BlogPostTemplate = ({
   );
 };
 
-export const Head = ({ data: { markdownRemark: post } }) => {
+export const Head = ({ data: { markdownRemark: post } }: any) => {
   return (
     <Seo
       title={post.frontmatter.title}
@@ -70,7 +70,7 @@ export const Head = ({ data: { markdownRemark: post } }) => {
   );
 };
 
-export default BlogPostTemplate;
+export default BlogPostLayout;
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
