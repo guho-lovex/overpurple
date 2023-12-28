@@ -69,8 +69,8 @@ npx react-devtools
 react-devtools
 ```
 
-#### 使用自定义图标库[inconfont](https://www.iconfont.cn/)
-##### 下载iconfont图标文件，直接下载文件然后解压在本地。
+#### 使用自定义图标库iconfont
+##### 下载 [iconfont](https://www.iconfont.cn/) 图标文件，直接下载文件然后解压在本地
 ![image](../../assets//snipaste.png)
 将解压的文件放在项目`src/assets/fonts`目录下。
 react native 所需的图标其实只需要 `.ttf`文件就可以了。其余的文件直接删除。

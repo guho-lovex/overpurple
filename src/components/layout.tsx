@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { isBrowser } from '../utils/const';
 import { ToggleBtn } from './Toggle/Toggle';
 import { ThemeProvider } from './theme/ThemeContext';
-
-export const isBrowser = typeof window !== 'undefined';
 
 export const HomeHeader = ({ title }: any) => {
   return (
@@ -35,7 +34,7 @@ export const OtherPageHeader = ({ title }: any) => {
   );
 };
 
-export const Layout = ({ location, title, children }: any) => {
+export const Layout = ({ location, title, outline, children }: any) => {
   const rootPath = `/overpurple.io/`;
   const isRootPath = location?.pathname === rootPath;
 
@@ -44,6 +43,8 @@ export const Layout = ({ location, title, children }: any) => {
   ) : (
     <OtherPageHeader title={title} />
   );
+
+  console.log('---outline', outline);
 
   const transformVNode = (children: any): any => {
     if (children == null || typeof children !== 'object') {
@@ -113,7 +114,6 @@ export const Layout = ({ location, title, children }: any) => {
         const grandson = children.filter(x => x.type === 'section');
         const content = grandson[0]?.props?.dangerouslySetInnerHTML.__html;
 
-        // TODO 将 domstring 转成 vDom 形式
         if (isBrowser) {
           const placeholder = document.createElement('div');
           // placeholder.setAttribute('id', 'content');
@@ -131,92 +131,7 @@ export const Layout = ({ location, title, children }: any) => {
   };
 
   const outlineData = transformVNode(children);
-
-  // const sourceData = [
-  //   {
-  //     value: 'Js事件循环(Event Loop)',
-  //     level: 2,
-  //   },
-  //   {
-  //     value: '浏览器Event Loop',
-  //     level: 3,
-  //   },
-  //   {
-  //     value: 'JavaScript 的运行机制',
-  //     level: 4,
-  //   },
-  //   {
-  //     value: 'javaScript 中有两种异步任务',
-  //     level: 4,
-  //   },
-  //   {
-  //     value: '什么是 event loop？',
-  //     level: 4,
-  //   },
-  //   {
-  //     value: 'NodeJS 中的事件循环',
-  //     level: 3,
-  //   },
-  //   {
-  //     value: 'NodeJS 中的异步方法',
-  //     level: 4,
-  //   },
-  //   {
-  //     value: '生成树形结构',
-  //     level: 2,
-  //   },
-  //   {
-  //     value: '树的儿子',
-  //     level: 3,
-  //   },
-  // ];
-
-  // const tree = [
-  //   {
-  //     value: 'Js事件循环(Event Loop)',
-  //     depth: 2,
-  //     child: [
-  //       {
-  //         value: '浏览器Event Loop',
-  //         depth: 3,
-  //         child: [
-  //           {
-  //             value: 'JavaScript 的运行机制',
-  //             depth: 4,
-  //           },
-  //           {
-  //             value: 'javaScript 中有两种异步任务',
-  //             depth: 4,
-  //           },
-  //           {
-  //             value: '什么是 event loop？',
-  //             depth: 4,
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         value: 'NodeJS 中的事件循环',
-  //         depth: 3,
-  //         child: [
-  //           {
-  //             value: 'NodeJS 中的异步方法',
-  //             depth: 4,
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     value: '生成树形结构',
-  //     depth: 2,
-  //     child: [
-  //       {
-  //         value: '树的儿子',
-  //         depth: 3,
-  //       },
-  //     ],
-  //   },
-  // ];
+  console.log('---outlineData', outlineData);
 
   const list = [
     { name: 'A', level: 0 },
@@ -300,26 +215,26 @@ export const Layout = ({ location, title, children }: any) => {
 
   return (
     <ThemeProvider>
-      <div className="flex">
-        {
-          <div id="content" className="flex w-1/5 p-4 overflow-hidden">
-            {outlineData}
-          </div>
-        }
-        <div className="flex-1">
-          <div className="global-wrapper" data-is-root-path={isRootPath}>
-            <header className="global-header">{header}</header>
-            <main>{children}</main>
-            {isRootPath && (
-              <footer>
-                <a href="https://juejin.cn/user/4283353029944296">掘金</a>
-                <> • </>
-                <a href="https://github.com/lovexueorangecat/overpurple.io">
-                  github
-                </a>
-              </footer>
-            )}
-          </div>
+      <div>
+        <div
+          id="content-menu"
+          className="max-w-[815px]  pt-10 pl-6 pr-3 absolute"
+          dangerouslySetInnerHTML={{
+            __html: outline ? `<div id='article-outline'>${outline}</div>` : '',
+          }}
+        />
+        <div className="global-wrapper" data-is-root-path={isRootPath}>
+          <header className="global-header">{header}</header>
+          <main>{children}</main>
+          {isRootPath && (
+            <footer>
+              <a href="https://juejin.cn/user/4283353029944296">掘金</a>
+              <> • </>
+              <a href="https://github.com/lovexueorangecat/overpurple.io">
+                github
+              </a>
+            </footer>
+          )}
         </div>
       </div>
     </ThemeProvider>

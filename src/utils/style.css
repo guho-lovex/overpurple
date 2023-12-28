@@ -251,8 +251,12 @@ table thead tr th {
 
 /* Link */
 
-a {
+a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
   color: var(--theme-purple);
+}
+
+h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+  text-decoration: underline;
 }
 
 a:hover,
@@ -263,7 +267,8 @@ a:focus {
 /* Custom classes */
 
 .global-wrapper {
-  margin: var(--spacing-0 )var(--spacing-36);
+  /* margin: var(--spacing-0 )var(--spacing-24); */
+  margin: 0 auto;
   max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-10) var(--spacing-10);
 }
@@ -516,9 +521,21 @@ summary h3,summary h4,summary h5,summary h6 {
 }
 
 .gatsby-remark-prismjs-copy-button-container {
-  left: -3px
+  left: 0 !important;
 }
 
 .gatsby-remark-prismjs-copy-button-container .gatsby-remark-prismjs-copy-button {
   color: var(--color-text-dark);
+}
+
+/* outline */
+#article-outline {
+  overflow-y: auto;
+  height: 600px;
+}
+
+#article-outline>ul li, #article-outline>ol li {
+  list-style: none;
+  text-decoration: none;
+  margin: var(--spacing-3) 0;
 }

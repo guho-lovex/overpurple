@@ -10,9 +10,10 @@ const BlogPostLayout = ({
   location,
 }: any) => {
   const siteTitle = site.siteMetadata?.title || `Title`;
+  const outline = post.tableOfContents;
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} outline={outline}>
       <article
         className="blog-post"
         itemScope
@@ -92,6 +93,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
       }
+      tableOfContents
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {
