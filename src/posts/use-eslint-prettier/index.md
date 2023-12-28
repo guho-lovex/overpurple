@@ -1,5 +1,5 @@
 ---
-title: Code beautification and commit validation in React or React Native
+title: Code beautification and commit
 date: "2023-04-19T08:43:48.977Z"
 description: Config eslint\prettier\husky\lint-staged in the react native project
 ---

@@ -12,7 +12,17 @@ interface BlogIndexProps {
 
 const BlogIndex = ({ data, location }: BlogIndexProps) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const posts = data.allMarkdownRemark.nodes;
+  const posts = data.allMarkdownRemark.nodes || [];
+
+  const outline = posts
+    .reduce((prev: any[], cur: any) => {
+      const slug = cur.fields.slug;
+      const title = cur.frontmatter.title;
+      const itemString = `<p class="mb-6"><a href="${slug}">${title}</a></p>`;
+      prev.push(itemString);
+      return prev;
+    }, [])
+    .join('');
 
   if (posts.length === 0) {
     return (
@@ -28,7 +38,7 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} outline={outline}>
       <BioHeader />
       <ol style={{ listStyle: `none` }}>
         {posts.map((post: any) => {
@@ -56,7 +66,6 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
                     }}
                     itemProp="description"
                   />
-                  {/* <p>{post.frontmatter.description || post.excerpt}</p> */}
                 </section>
               </article>
             </li>

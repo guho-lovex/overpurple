@@ -44,7 +44,7 @@ export const Layout = ({ location, title, outline, children }: any) => {
     <OtherPageHeader title={title} />
   );
 
-  console.log('---outline', outline);
+  console.log('------outline', outline);
 
   const transformVNode = (children: any): any => {
     if (children == null || typeof children !== 'object') {
@@ -218,7 +218,7 @@ export const Layout = ({ location, title, outline, children }: any) => {
       <div>
         <div
           id="content-menu"
-          className="max-w-[815px]  pt-10 pl-6 pr-3 absolute"
+          className="max-w-[815px] pt-20 pl-6 pr-3 absolute"
           dangerouslySetInnerHTML={{
             __html: outline ? `<div id='article-outline'>${outline}</div>` : '',
           }}
