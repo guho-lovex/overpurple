@@ -255,9 +255,7 @@ export const Layout = ({ location, title, outline, children }: any) => {
             <footer>
               <a href="https://juejin.cn/user/4283353029944296">掘金</a>
               <> • </>
-              <a href="https://github.com/lovexueorangecat/overpurple.io">
-                github
-              </a>
+              <a href="https://github.com/guho-lovex/overpurple.io">github</a>
             </footer>
           )}
         </div>

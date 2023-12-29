@@ -74,7 +74,7 @@ module.exports = {
         short_name: `Overpurple`,
         start_url: `/`,
         background_color: `#ffffff`,
-        icon: `src/assets/xiaolan.png`, // This path is relative to the root of the site.
+        icon: `/static/favicon.ico`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-offline`,

@@ -25,6 +25,12 @@ function SEO({ description, title }: any) {
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta property="og:title" content={seo.title} />
+      <meta
+        property="og:image"
+        content={
+          'https://guho-lovex.github.io/overpurple.io/static/a286eda4fae9271e7db3e399b52d5ad0/e5610/xiaolan.png'
+        }
+      />
       <meta property="og:url" content={seo.url} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:type" content="website" />

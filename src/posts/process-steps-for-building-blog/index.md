@@ -25,7 +25,7 @@ npx gatsby new 你的项目名 https://github.com/gatsbyjs/gatsby-starter-blog
 ```js
 yarn add -D typescript && npx tsc --init
 ```
-具体配置详见: [tsconfig.json](https://github.com/lovexueorangecat/overpurple.io/blob/master/tsconfig.json)
+具体配置详见: [tsconfig.json](https://github.com/guho-lovex/overpurple.io/blob/master/tsconfig.json)
 #### 配置Eslint和prettier
 Eslint规范typescript和react
 
@@ -39,7 +39,7 @@ yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslin
 > eslint-plugin-react： 校验 React
 > eslint-plugin-react-hooks： 根据 Hooks API 校验 Hooks 的使用
 > eslint-plugin-import: 此插件主要为了校验 import/export 语法，防止错误拼写文件路径以及导出名称的问题 进行排序
-根目录下新建`.eslintrc.js`，具体配置如[.eslintrc.js](https://github.com/lovexueorangecat/overpurple.io/blob/master/.eslintrc.js)，
+根目录下新建`.eslintrc.js`，具体配置如[.eslintrc.js](https://github.com/guho-lovex/overpurple.io/blob/master/.eslintrc.js)，
 
 * 配置prettier
 在.vscode/settings.json中新增一个属性，保存自动格式化
@@ -55,7 +55,7 @@ yarn add prettier eslint-config-prettier eslint-plugin-prettier
 > prettier: 格式化规则程序
 > eslint-config-prettier: 禁用所有和 Prettier 产生冲突的规则
 > eslint-plugin-prettier: 把 Prettier 应用到 Eslint，配合 rules "prettier/prettier": "error" 实现 Eslint 提醒。
-根目录下新建`.prettierrc`和`.prettierignore`,具体配置如[.prettierrc](https://github.com/lovexueorangecat/overpurple.io/blob/master/.prettierrc)、[.prettierignore](https://github.com/lovexueorangecat/overpurple.io/blob/master/.prettierignore)
+根目录下新建`.prettierrc`和`.prettierignore`,具体配置如[.prettierrc](https://github.com/guho-lovex/overpurple.io/blob/master/.prettierrc)、[.prettierignore](https://github.com/guho-lovex/overpurple.io/blob/master/.prettierignore)
 
 #### 配置husky和lint-staged构建提交校验
 安装依赖
@@ -157,7 +157,7 @@ git remote add origin 你的github仓库地址
 git push -u origin master
 ```
 #### 创建黑暗模式
-这里详见另一篇博文：[The pursuit of perfect dark patterns](https://lovexueorangecat.github.io/overpurple.io/the-pursuit-of-perfect-dark-patterns)
+这里详见另一篇博文：[The pursuit of perfect dark patterns](https://guho-lovex.github.io/overpurple.io/the-pursuit-of-perfect-dark-patterns)
 
 本地仓库推到github仓库
 create a new repository on the command line

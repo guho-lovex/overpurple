@@ -112,7 +112,7 @@ export function onRenderBody({ setPreBodyComponents }) {
 }
 
 ```
-`MagicScriptTag`就是我们添加的script脚本组件，判断浏览器储存的主题色，给body加上亮模式样式或暗模式样式，具体代码:[gatsby.ssr.tsx](https://github.com/lovexueorangecat/overpurple.io/blob/master/gatsby-ssr.tsx)
+`MagicScriptTag`就是我们添加的script脚本组件，判断浏览器储存的主题色，给body加上亮模式样式或暗模式样式，具体代码:[gatsby.ssr.tsx](https://github.com/guho-lovex/overpurple.io/blob/master/gatsby-ssr.tsx)
 并且我们在脚本中注入了一个全局方法, 在浏览器控制台直接可以 `window.__setThemeMode('dark')`来切换暗模式.
 ```tsx
 function setTheme(newTheme) {
