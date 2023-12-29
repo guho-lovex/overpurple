@@ -51,7 +51,7 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
   };
 
   return (
-    <>
+    <div>
       <div className="toggle-switch" onClick={handleClick}>
         <input
           ref={inputRef}
@@ -67,7 +67,7 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
           <span className={`toggle-switch-switch ${shadowClassName}`} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

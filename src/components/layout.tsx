@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { isBrowser } from '../utils/const';
+import menuIcon from '../assets/menu-icon.png';
 import { ToggleBtn } from './Toggle/Toggle';
 import { ThemeProvider } from './theme/ThemeContext';
 
@@ -15,7 +16,8 @@ export const HomeHeader = ({ title }: any) => {
   );
 };
 
-export const OtherPageHeader = ({ title }: any) => {
+export const OtherPageHeader = ({ title, visible, handleClick }: any) => {
+  console.log('------visible----', visible);
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       const allCodeNode = window.document.querySelectorAll(
@@ -29,7 +31,10 @@ export const OtherPageHeader = ({ title }: any) => {
       <Link className="header-link-home" to="/">
         {title}
       </Link>
-      <ToggleBtn />
+      <p className="flex items-center" onClick={handleClick}>
+        <img className="menu-icon mr-3" src={menuIcon} alt="目录" />
+        <ToggleBtn />
+      </p>
     </div>
   );
 };
@@ -37,14 +42,21 @@ export const OtherPageHeader = ({ title }: any) => {
 export const Layout = ({ location, title, outline, children }: any) => {
   const rootPath = `/overpurple.io/`;
   const isRootPath = location?.pathname === rootPath;
+  const [visible, setVisible] = React.useState(true);
+
+  const handleClick = () => {
+    setVisible(prev => (prev ? false : true));
+  };
 
   const header = isRootPath ? (
     <HomeHeader title={title} />
   ) : (
-    <OtherPageHeader title={title} />
+    <OtherPageHeader
+      title={title}
+      visible={visible}
+      handleClick={handleClick}
+    />
   );
-
-  console.log('------outline', outline);
 
   const transformVNode = (children: any): any => {
     if (children == null || typeof children !== 'object') {
@@ -215,16 +227,29 @@ export const Layout = ({ location, title, outline, children }: any) => {
 
   return (
     <ThemeProvider>
-      <div>
-        <div
-          id="content-menu"
-          className="max-w-[815px] pt-20 pl-6 pr-3 absolute"
-          dangerouslySetInnerHTML={{
-            __html: outline ? `<div id='article-outline'>${outline}</div>` : '',
-          }}
-        />
+      <div className="min-w-[546px]">
+        <div id="content-menu" className="pt-20 pl-3">
+          <p className="menu_icon" onClick={handleClick}>
+            <img src={menuIcon} alt="目录" />
+          </p>
+          <div
+            className={
+              visible
+                ? 'pl-6 pr-3 absolute menu'
+                : 'pl-6 pr-3 absolute menu hide_menu'
+            }
+          >
+            <div
+              dangerouslySetInnerHTML={{
+                __html: outline
+                  ? `<div id='article-outline'>${outline}</div>`
+                  : '',
+              }}
+            />
+          </div>
+        </div>
         <div className="global-wrapper" data-is-root-path={isRootPath}>
-          <header className="global-header">{header}</header>
+          <header className="flex-1 global-header">{header}</header>
           <main>{children}</main>
           {isRootPath && (
             <footer>

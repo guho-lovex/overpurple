@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby';
 import { Layout } from '../components/layout';
 import Seo from '../components/seo';
 import BioHeader from '../components/bioHeader';
+import { ThemeContext } from '../components/theme/ThemeContext';
 
 interface BlogIndexProps {
   data: any;
@@ -13,6 +14,10 @@ interface BlogIndexProps {
 const BlogIndex = ({ data, location }: BlogIndexProps) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allMarkdownRemark.nodes || [];
+
+  const theme = React.useContext(ThemeContext);
+
+  console.log('------theme', theme);
 
   const outline = posts
     .reduce((prev: any[], cur: any) => {
