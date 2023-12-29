@@ -558,6 +558,7 @@ summary h3,summary h4,summary h5,summary h6 {
   .menu_icon {
     width: 1.58rem;
     margin-bottom: 1rem;
+    z-index: 2;
   }
 
   .menu-icon {
@@ -600,6 +601,7 @@ summary h3,summary h4,summary h5,summary h6 {
 
   .menu-icon {
     width: 1.5rem;
+    z-index: 2;
   }
 
   .post-list-item h2 {
