@@ -7,8 +7,8 @@
 
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-// https://github.com/nfl/react-helmet#example
-import { Helmet } from 'react-helmet';
+// https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet-async/?=react-helmet-async
+import { Helmet } from 'react-helmet-async';
 
 function SEO({ description, title }: any) {
   const { site } = useStaticQuery(query);
@@ -21,8 +21,6 @@ function SEO({ description, title }: any) {
   };
 
   return (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     <Helmet>
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
