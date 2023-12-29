@@ -31,10 +31,10 @@ export const OtherPageHeader = ({ title, visible, handleClick }: any) => {
       <Link className="header-link-home" to="/">
         {title}
       </Link>
-      <p className="flex items-center" onClick={handleClick}>
+      <div className="flex items-center" onClick={handleClick}>
         <img className="menu-icon mr-3" src={menuIcon} alt="目录" />
         <ToggleBtn />
-      </p>
+      </div>
     </div>
   );
 };
@@ -49,7 +49,7 @@ export const Layout = ({ location, title, outline, children }: any) => {
   };
 
   const header = isRootPath ? (
-    <HomeHeader title={title} />
+    <HomeHeader title={title} visible={visible} handleClick={handleClick} />
   ) : (
     <OtherPageHeader
       title={title}
@@ -229,9 +229,9 @@ export const Layout = ({ location, title, outline, children }: any) => {
     <ThemeProvider>
       <div className="min-w-[546px]">
         <div id="content-menu" className="pt-20">
-          <p className="menu_icon" onClick={handleClick}>
+          <div className="menu_icon" onClick={handleClick}>
             <img src={menuIcon} alt="目录" />
-          </p>
+          </div>
           <div
             className={
               visible
