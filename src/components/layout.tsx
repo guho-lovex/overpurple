@@ -5,19 +5,21 @@ import menuIcon from '../assets/menu-icon.png';
 import { ToggleBtn } from './Toggle/Toggle';
 import { ThemeProvider } from './theme/ThemeContext';
 
-export const HomeHeader = ({ title }: any) => {
+export const HomeHeader = ({ title, handleClick }: any) => {
   return (
     <div className="flex items-center justify-between">
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
       </h1>
-      <ToggleBtn />
+      <div className="flex items-center" onClick={handleClick}>
+        <img className="menu-icon mr-3" src={menuIcon} alt="目录" />
+        <ToggleBtn />
+      </div>
     </div>
   );
 };
 
-export const OtherPageHeader = ({ title, visible, handleClick }: any) => {
-  console.log('------visible----', visible);
+export const OtherPageHeader = ({ title, handleClick }: any) => {
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       const allCodeNode = window.document.querySelectorAll(
@@ -49,13 +51,9 @@ export const Layout = ({ location, title, outline, children }: any) => {
   };
 
   const header = isRootPath ? (
-    <HomeHeader title={title} visible={visible} handleClick={handleClick} />
+    <HomeHeader title={title} handleClick={handleClick} />
   ) : (
-    <OtherPageHeader
-      title={title}
-      visible={visible}
-      handleClick={handleClick}
-    />
+    <OtherPageHeader title={title} handleClick={handleClick} />
   );
 
   const transformVNode = (children: any): any => {

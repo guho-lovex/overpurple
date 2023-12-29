@@ -494,7 +494,7 @@ section>details>summary:nth-child(1) {
 }
 
 summary {
-  margin-left: calc(-1 * var(--spacing-6));
+  margin-left: calc(-1 * var(--spacing-3));
   margin-bottom: var(--spacing-4);
 }
 
