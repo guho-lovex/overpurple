@@ -542,7 +542,7 @@ summary h3,summary h4,summary h5,summary h6 {
 
 @media (min-width: 1256px) {
   .menu {
-    width: 320px;
+    width: 325px;
     max-width: 600px;
     overflow: hidden;
     transform: translateX(0);
@@ -564,14 +564,14 @@ summary h3,summary h4,summary h5,summary h6 {
     display: none;
   }
   
-  .content-menu {
-    padding-left: 0,75rem;
+  #content-menu {
+    padding-left: 0.75rem;
   }
 }
 
 @media (max-width: 1256px) {
   .menu {
-    width: 300px;
+    width: 325px;
     max-width: 600px;
     overflow: hidden;
     transform: translateX(-815px);
