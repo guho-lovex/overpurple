@@ -270,7 +270,7 @@ a:focus {
   /* margin: var(--spacing-0 )var(--spacing-24); */
   margin: 0 auto;
   max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-3);
+  padding: var(--spacing-10) var(--spacing-4);
 }
 
 .global-wrapper[data-is-root-path="true"] .bio {
