@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 import { Layout } from '../components/layout';
-import Seo from '../components/seo';
+import SEO from '../components/seo';
 
 interface NotFoundPageProps {
   data: any;
@@ -20,7 +20,7 @@ const NotFoundPage = ({ data, location }: NotFoundPageProps) => {
   );
 };
 
-export const Head = () => <Seo title="404: Not Found" />;
+export const Head = () => <SEO title="404: Not Found" />;
 
 export default NotFoundPage;
 

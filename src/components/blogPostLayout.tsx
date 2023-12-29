@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import BioHeader from './bioHeader';
 import { Layout } from './layout';
-import Seo from './seo';
+import SEO from './seo';
 
 const BlogPostLayout = ({
   data: { previous, next, site, markdownRemark: post },
@@ -64,7 +64,7 @@ const BlogPostLayout = ({
 
 export const Head = ({ data: { markdownRemark: post } }: any) => {
   return (
-    <Seo
+    <SEO
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
     />

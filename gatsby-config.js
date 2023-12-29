@@ -77,5 +77,7 @@ module.exports = {
         icon: `src/assets/xiaolan.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
   ],
 };

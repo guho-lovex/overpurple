@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import { Layout } from '../components/layout';
-import Seo from '../components/seo';
 import BioHeader from '../components/bioHeader';
 import { ThemeContext } from '../components/theme/ThemeContext';
 
@@ -88,13 +87,13 @@ export default BlogIndex;
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="All posts" />;
 
 export const pageQuery = graphql`
   {
     site {
       siteMetadata {
         title
+        description
       }
     }
     allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {

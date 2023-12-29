@@ -5,52 +5,47 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import * as React from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+// https://github.com/nfl/react-helmet#example
+import { Helmet } from 'react-helmet';
 
-interface SeoProps {
-  description?: string;
-  title?: string;
-  children?: React.ReactNode;
-}
+function SEO({ description, title }: any) {
+  const { site } = useStaticQuery(query);
+  const { siteMetadata } = site;
 
-const Seo: React.FC<SeoProps> = ({ description, title, children }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            social {
-              twitter
-            }
-          }
-        }
-      }
-    `
-  );
-
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const seo = {
+    title: title || siteMetadata.title,
+    description: description || siteMetadata.description,
+    url: `${siteMetadata.siteUrl}`,
+  };
 
   return (
-    <>
-      <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
-      <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={metaDescription} />
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    <Helmet>
+      <title>{seo.title}</title>
+      <meta name="description" content={seo.description} />
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:url" content={seo.url} />
+      <meta property="og:description" content={seo.description} />
       <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary" />
-      <meta
-        name="twitter:creator"
-        content={site.siteMetadata?.social?.twitter || ``}
-      />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={metaDescription} />
-      {children}
-    </>
+    </Helmet>
   );
-};
+}
 
-export default Seo;
+export default SEO;
+
+const query = graphql`
+  query SEO {
+    site {
+      siteMetadata {
+        title
+        description
+        social {
+          twitter
+        }
+      }
+    }
+  }
+`;

@@ -9,17 +9,25 @@ import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import NavHeader from './nav';
+import SEO from './seo';
 
 const BioHeader = () => {
   const data = useStaticQuery(pageQuery);
-  // Set these values by editing "siteMetadata" in gatsby-config.js
+
+  const {
+    site: { siteMetadata },
+  } = data;
+  // const rootPath = data.site?.pathPrefix;
+  // const title = data.site.siteMetadata?.title;
+  // const author = data.site.siteMetadata?.author;
   const rootPath = data.site?.pathPrefix;
-  const title = data.site.siteMetadata?.title;
-  const author = data.site.siteMetadata?.author;
-  // const social = data.site.siteMetadata?.social
+  const title = siteMetadata?.title;
+  const author = siteMetadata?.author;
+  const description = siteMetadata?.description;
 
   return (
     <div className="bio">
+      <SEO title={title} description={description} />
       <div>
         <NavHeader title={title} rootPath={rootPath} />
       </div>
@@ -67,9 +75,7 @@ export const pageQuery = graphql`
           summary
           author_avatar
         }
-        social {
-          twitter
-        }
+        description
         siteUrl
       }
     }
