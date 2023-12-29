@@ -228,7 +228,7 @@ export const Layout = ({ location, title, outline, children }: any) => {
   return (
     <ThemeProvider>
       <div className="min-w-[546px]">
-        <div id="content-menu" className="pt-20 pl-3">
+        <div id="content-menu" className="pt-20">
           <p className="menu_icon" onClick={handleClick}>
             <img src={menuIcon} alt="目录" />
           </p>
