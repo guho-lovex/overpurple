@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link } from 'gatsby';
 import menuIcon from '../assets/menu-icon.png';
 import { ToggleBtn } from './Toggle/Toggle';
@@ -58,7 +58,7 @@ export const MenuOutline = ({ outline, visible, handleClick }: any) => {
 export const Layout = ({ location, title, outline, children }: any) => {
   const rootPath = `/overpurple.io/`;
   const isRootPath = location?.pathname === rootPath;
-  const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = useState(true);
 
   const handleClick = useCallback(() => {
     setVisible(prev => (prev ? false : true));
