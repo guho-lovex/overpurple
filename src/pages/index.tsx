@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby';
 
 import { Layout } from '../components/layout';
 import BioHeader from '../components/bioHeader';
-import { ThemeContext } from '../components/theme/ThemeContext';
 
 interface BlogIndexProps {
   data: any;
@@ -14,9 +13,9 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allMarkdownRemark.nodes || [];
 
-  const theme = React.useContext(ThemeContext);
+  // const { themeMode } = React.useContext(ThemeContext);
 
-  console.log('------theme', theme);
+  // console.log('------themeMode', themeMode);
 
   const outline = posts
     .reduce((prev: any[], cur: any) => {

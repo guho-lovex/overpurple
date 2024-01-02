@@ -41,6 +41,29 @@ export const OtherPageHeader = ({ title, handleClick }: any) => {
   );
 };
 
+export const MenuOutline = ({ outline, visible, handleClick }: any) => {
+  return (
+    <div id="content-menu" className="pt-20 absolute">
+      <div className="menu_icon" onClick={handleClick}>
+        <img src={menuIcon} alt="目录" />
+      </div>
+      <div
+        className={
+          visible
+            ? 'pl-6 pr-3 absolute menu'
+            : 'pl-6 pr-3 absolute menu hide_menu'
+        }
+      >
+        <div
+          dangerouslySetInnerHTML={{
+            __html: outline ? `<div id='article-outline'>${outline}</div>` : '',
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
 export const Layout = ({ location, title, outline, children }: any) => {
   const rootPath = `/overpurple.io/`;
   const isRootPath = location?.pathname === rootPath;
@@ -226,26 +249,11 @@ export const Layout = ({ location, title, outline, children }: any) => {
   return (
     <ThemeProvider>
       <div className="min-w-[375px]">
-        <div id="content-menu" className="pt-20 absolute">
-          <div className="menu_icon" onClick={handleClick}>
-            <img src={menuIcon} alt="目录" />
-          </div>
-          <div
-            className={
-              visible
-                ? 'pl-6 pr-3 absolute menu'
-                : 'pl-6 pr-3 absolute menu hide_menu'
-            }
-          >
-            <div
-              dangerouslySetInnerHTML={{
-                __html: outline
-                  ? `<div id='article-outline'>${outline}</div>`
-                  : '',
-              }}
-            />
-          </div>
-        </div>
+        <MenuOutline
+          outline={outline}
+          visible={visible}
+          handleClick={handleClick}
+        />
         <div className="global-wrapper" data-is-root-path={isRootPath}>
           <header className="flex-1 global-header">{header}</header>
           <main>{children}</main>
