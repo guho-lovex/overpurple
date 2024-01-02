@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { Link } from 'gatsby';
 import menuIcon from '../assets/menu-icon.png';
 import { ToggleBtn } from './Toggle/Toggle';
@@ -19,14 +19,6 @@ export const HomeHeader = ({ title, handleClick }: any) => {
 };
 
 export const OtherPageHeader = ({ title, handleClick }: any) => {
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const allCodeNode = window.document.querySelectorAll(
-        'code[class*="language-"]'
-      );
-      console.log('-----allCodeNode', allCodeNode);
-    }
-  }, []);
   return (
     <div className="flex items-center justify-between">
       <Link className="header-link-home" to="/">
