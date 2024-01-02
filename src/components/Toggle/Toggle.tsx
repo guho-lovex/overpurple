@@ -72,9 +72,7 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
 };
 
 export const ToggleBtn: React.FC<ToggleSwitchButtonProps> = () => {
-  const { toggleTheme, themeMode } = useContext(ThemeContext);
-
-  console.log('----themeMode==', themeMode);
+  const { toggleTheme } = useContext(ThemeContext);
 
   return <ToggleSwitchButton onChange={toggleTheme}></ToggleSwitchButton>;
 };
