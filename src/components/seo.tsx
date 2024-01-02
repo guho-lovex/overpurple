@@ -17,7 +17,7 @@ function SEO({ description, title }: any) {
   const seo = {
     title: title || siteMetadata.title,
     description: description || siteMetadata.description,
-    url: `${siteMetadata.siteUrl}`,
+    url: siteMetadata.siteUrl,
   };
 
   return (
