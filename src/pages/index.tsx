@@ -13,10 +13,6 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allMarkdownRemark.nodes || [];
 
-  // const { themeMode } = React.useContext(ThemeContext);
-
-  // console.log('------themeMode', themeMode);
-
   const outline = posts
     .reduce((prev: any[], cur: any) => {
       const slug = cur.fields.slug;
