@@ -35,6 +35,10 @@ function SEO({ description, title, url }: any) {
       <meta property="og:url" content={seo.url} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:type" content="website" />
+      <meta
+        name="google-site-verification"
+        content="498PPMVxFUtdOPe084Vsdx3Q9URFjp8RxJmKsjkFbys"
+      />
     </Helmet>
   );
 }
