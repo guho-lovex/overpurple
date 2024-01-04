@@ -1,4 +1,11 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import './toggle.css';
 import sunIcon from '../../assets/sun.png';
 import moonIcon from '../../assets/moon.png';
@@ -31,7 +38,7 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
     return hasFocus ? `switch-shadow` : '';
   }, [hasFocus]);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     const checkbox = inputRef.current;
     onChange?.(checkbox?.checked);
     preCheckbox.current = !!checkbox?.checked;
@@ -40,15 +47,15 @@ export const ToggleSwitchButton: React.FC<ToggleSwitchButtonProps> = ({
       checkbox?.click();
       return;
     }
-  };
+  }, [onChange]);
 
-  const handleBlur = () => {
+  const handleBlur = useCallback(() => {
     setHasFocus(false);
-  };
+  }, []);
 
-  const handleFocus = () => {
+  const handleFocus = useCallback(() => {
     setHasFocus(true);
-  };
+  }, []);
 
   return (
     <div>

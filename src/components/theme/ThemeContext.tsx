@@ -7,11 +7,12 @@ export const ThemeProvider = ({ children }: any) => {
   const [themeMode, setThemeMode] = useState<string>();
 
   useEffect(() => {
-    const localDarkMode = window.localStorage.getItem('themeMode');
+    const localDarkMode = window.sessionStorage.getItem('themeMode');
 
     if (localDarkMode) {
       setThemeMode(localDarkMode);
     } else {
+      // 系统主题
       const isDarkMode = window.matchMedia(
         '(prefers-color-scheme: dark)'
       ).matches;
@@ -23,7 +24,7 @@ export const ThemeProvider = ({ children }: any) => {
     const toggleTheme = (isDakMode: boolean) => {
       const newTheme = !isDakMode ? ThemeModeType.Light : ThemeModeType.Dark;
       setThemeMode(newTheme);
-      window.localStorage.setItem('themeMode', newTheme);
+      window.sessionStorage.setItem('themeMode', newTheme);
       document.body.className = newTheme;
 
       if (hasWindow) {

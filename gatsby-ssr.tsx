@@ -21,7 +21,7 @@ const themeScript = `(function () {
   }
 
   function getThemeMode() {
-    const preferredThemeMode = window.localStorage.getItem('themeMode')
+    const preferredThemeMode = window.sessionStorage.getItem('themeMode')
     const hasPreferredThemeMode = typeof preferredThemeMode === 'string'
   
     if (hasPreferredThemeMode) {
@@ -51,7 +51,7 @@ const themeScript = `(function () {
   window.__setThemeMode = function(newTheme) {
     setTheme(newTheme)
     try {
-      window.localStorage.setItem('themeMode', newTheme)
+      window.sessionStorage.setItem('themeMode', newTheme)
     } catch (err) {}
   }
   setTheme(themeMode)
