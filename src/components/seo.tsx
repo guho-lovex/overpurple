@@ -3,11 +3,12 @@
  * Gatsby's useStaticQuery React hook
  *
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
+ * https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet-async/?=react-helmet-async
+ *
  */
 
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-// https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet-async/?=react-helmet-async
 import { Helmet } from 'react-helmet-async';
 
 function SEO({ description, title, url }: any) {
