@@ -77,12 +77,6 @@ const BlogIndex = ({ data, location }: BlogIndexProps) => {
 
 export default BlogIndex;
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-
 export const pageQuery = graphql`
   {
     site {
