@@ -1,5 +1,5 @@
 ---
-title: Process Steps for Building a Blog
+title: About building this blog
 date: '2023-03-21T12:18:39.413Z'
 description: Process steps to build my blogs‘ site based on gatsby-starter-blog.
 ---
