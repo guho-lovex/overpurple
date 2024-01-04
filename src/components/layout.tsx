@@ -25,12 +25,9 @@ export const OtherPageHeader = ({ title, handleClick }: any) => {
         {title}
       </Link>
       <div className="flex items-center">
-        <img
-          className="menu-icon mr-3"
-          src={menuIcon}
-          alt="目录"
-          onClick={handleClick}
-        />
+        <div className="menu-icon mr-3" onClick={handleClick}>
+          <img src={menuIcon} alt="目录" />
+        </div>
         <ToggleBtn />
       </div>
     </div>
