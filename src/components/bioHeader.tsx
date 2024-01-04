@@ -17,17 +17,15 @@ const BioHeader = () => {
   const {
     site: { siteMetadata },
   } = data;
-  // const rootPath = data.site?.pathPrefix;
-  // const title = data.site.siteMetadata?.title;
-  // const author = data.site.siteMetadata?.author;
   const rootPath = data.site?.pathPrefix;
   const title = siteMetadata?.title;
   const author = siteMetadata?.author;
   const description = siteMetadata?.description;
+  const url = siteMetadata?.siteUrl;
 
   return (
     <div className="bio">
-      <SEO title={title} description={description} />
+      <SEO title={title} description={description} url={url} />
       <div>
         <NavHeader title={title} rootPath={rootPath} />
       </div>

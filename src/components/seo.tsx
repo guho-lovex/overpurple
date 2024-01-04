@@ -10,14 +10,14 @@ import { useStaticQuery, graphql } from 'gatsby';
 // https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet-async/?=react-helmet-async
 import { Helmet } from 'react-helmet-async';
 
-function SEO({ description, title }: any) {
+function SEO({ description, title, url }: any) {
   const { site } = useStaticQuery(query);
   const { siteMetadata } = site;
 
   const seo = {
     title: title || siteMetadata.title,
     description: description || siteMetadata.description,
-    url: siteMetadata.siteUrl,
+    url: url || siteMetadata.siteUrl,
   };
 
   return (
@@ -46,9 +46,7 @@ const query = graphql`
       siteMetadata {
         title
         description
-        social {
-          twitter
-        }
+        siteUrl
       }
     }
   }
