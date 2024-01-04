@@ -13,7 +13,7 @@ module.exports = {
       summary: `Record`,
       author_avatar: `../assets/xiaolan.png`,
     },
-    description: `Overpurple.io`,
+    description: `A blog by Guho`,
     siteUrl: `https://guho-lovex.github.io/overpurple.io/`,
   },
   flags: {
@@ -76,5 +76,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet-async`,
+    `gatsby-plugin-sitemap`,
   ],
 };
