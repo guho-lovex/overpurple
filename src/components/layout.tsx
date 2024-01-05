@@ -10,8 +10,10 @@ export const HomeHeader = ({ title, handleClick }: any) => {
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
       </h1>
-      <div className="flex items-center" onClick={handleClick}>
-        <img className="menu-icon mr-3" src={menuIcon} alt="目录" />
+      <div className="flex items-center">
+        <div className="menu-icon mr-3" onClick={handleClick}>
+          <img src={menuIcon} alt="目录" />
+        </div>
         <ToggleBtn />
       </div>
     </div>
