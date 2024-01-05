@@ -23,13 +23,16 @@ const BioHeader = () => {
   const description = siteMetadata?.description;
   const url = siteMetadata?.siteUrl;
 
+  const NavTitle = title?.split('-')[0];
+  console.log('-----ti', NavTitle);
+
   return (
-    <div className="bio">
+    <div className="bio hover:scale-[1.005]">
       <SEO title={title} description={description} url={url} />
       <div>
-        <NavHeader title={title} rootPath={rootPath} />
+        <NavHeader title={NavTitle} rootPath={rootPath} />
       </div>
-      <div className="dark-footer">
+      <div className="dark-footer flex items-center">
         <StaticImage
           className="bio-avatar"
           // layout="constrained"
@@ -44,7 +47,7 @@ const BioHeader = () => {
         {author?.name && (
           <div>
             <>
-              Personal blog by &nbsp;
+              A personal blog by &nbsp;
               <a
                 href={`https://github.com/guho-lovex`}
                 target="_blank"
@@ -53,7 +56,7 @@ const BioHeader = () => {
                 {author.name}
               </a>
             </>
-            <div>{author.summary}</div>
+            {/* <div>{author.summary}</div> */}
             <></>
           </div>
         )}

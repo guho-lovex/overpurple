@@ -104,6 +104,9 @@
   border: 1px solid var(--theme-purple);
   box-shadow: 0 0 2px 2px var(--theme-purple);
 }
+.toggle-switch-label:hover {
+  box-shadow: 0 0 2px 2px var(--theme-purple);
+}
 
 .toggle-switch .toggle-switch-label .toggle-switch-switch.switch-shadow {
   border: 1px solid var(--theme-purple);

@@ -50,7 +50,10 @@ export const MenuOutline = ({ outline, visible, handleClick }: any) => {
             : 'pl-6 pr-3 absolute menu hide_menu'
         }
       >
-        <div className="absolute bottom-6 right-6 w-8" onClick={handleClick}>
+        <div
+          className="absolute bottom-6 right-6 menu-icon"
+          onClick={handleClick}
+        >
           <img src={packUp} alt="收起目录" />
         </div>
         <div
@@ -66,6 +69,7 @@ export const MenuOutline = ({ outline, visible, handleClick }: any) => {
 export const Layout = ({ location, title, outline, children }: any) => {
   const rootPath = `/overpurple.io/`;
   const isRootPath = location?.pathname === rootPath;
+  const headerTitle = title?.split('-')[0];
   const [visible, setVisible] = useState(true);
 
   const handleClick = useCallback(() => {
@@ -73,9 +77,9 @@ export const Layout = ({ location, title, outline, children }: any) => {
   }, []);
 
   const header = isRootPath ? (
-    <HomeHeader title={title} handleClick={handleClick} />
+    <HomeHeader title={headerTitle} handleClick={handleClick} />
   ) : (
-    <OtherPageHeader title={title} handleClick={handleClick} />
+    <OtherPageHeader title={headerTitle} handleClick={handleClick} />
   );
 
   return (

@@ -1,6 +1,6 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <h1 align="center">
-  a blog by Guho
+  a blog by GuHo
 </h1>
 
 <!-- 本地运行 -->

@@ -7,13 +7,13 @@
 module.exports = {
   pathPrefix: '/overpurple.io',
   siteMetadata: {
-    title: `Overpurple`,
+    title: `overpurple - A blog by GuHo`,
     author: {
       name: `GuHo`,
       summary: `Record`,
       author_avatar: `../assets/xiaolan.png`,
     },
-    description: `A blog by Guho`,
+    description: `A personal blog by GuHo`,
     siteUrl: `https://guho-lovex.github.io/overpurple.io/`,
   },
   flags: {
