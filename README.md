@@ -1,6 +1,6 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <h1 align="center">
-  a blog by GuHo
+ overpurple - A blog by GuHo
 </h1>
 
 <!-- 本地运行 -->
