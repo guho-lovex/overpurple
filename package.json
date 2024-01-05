@@ -1,7 +1,7 @@
 {
-  "name": "overpurlple.io",
+  "name": "overpurlple",
   "private": true,
-  "description": "Overpurlple",
+  "description": "A personal blog by GuHo",
   "version": "0.1.0",
   "scripts": {
     "prepare": "husky install",
@@ -27,10 +27,6 @@
   },
   "engines": {
     "node": ">=18"
-  },
-  "author": "lovex <l2276227464@163.com>",
-  "bugs": {
-    "url": "https://github.com/guho-lovex/overpurple.io/issues"
   },
   "dependencies": {
     "@fontsource/merriweather": "^4.5.14",
@@ -82,7 +78,8 @@
   "keywords": [
     "react",
     "overpurple",
-    "overpurlple.io"
-  ],
-  "license": "0BSD"
+    "overpurlple.io",
+    "guho",
+    "guho-lovex"
+  ]
 }
