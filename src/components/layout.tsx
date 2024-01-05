@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Link } from 'gatsby';
 import menuIcon from '../assets/menu-icon.png';
+import packUp from '../assets/pack-up.png';
 import { ToggleBtn } from './Toggle/Toggle';
 import { ThemeProvider } from './theme/ThemeContext';
 
@@ -10,7 +11,7 @@ export const HomeHeader = ({ title, handleClick }: any) => {
       <h1 className="main-heading">
         <Link to="/">{title}</Link>
       </h1>
-      <div className="flex items-center">
+      <div className="flex items-center z-0">
         <div className="menu-icon mr-3" onClick={handleClick}>
           <img src={menuIcon} alt="目录" />
         </div>
@@ -26,7 +27,7 @@ export const OtherPageHeader = ({ title, handleClick }: any) => {
       <Link className="header-link-home" to="/">
         {title}
       </Link>
-      <div className="flex items-center">
+      <div className="flex items-center z-0">
         <div className="menu-icon mr-3" onClick={handleClick}>
           <img src={menuIcon} alt="目录" />
         </div>
@@ -49,6 +50,9 @@ export const MenuOutline = ({ outline, visible, handleClick }: any) => {
             : 'pl-6 pr-3 absolute menu hide_menu'
         }
       >
+        <div className="absolute bottom-6 right-6 w-8" onClick={handleClick}>
+          <img src={packUp} alt="收起目录" />
+        </div>
         <div
           dangerouslySetInnerHTML={{
             __html: outline ? `<div id='article-outline'>${outline}</div>` : '',
