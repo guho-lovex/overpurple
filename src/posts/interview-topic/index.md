@@ -212,7 +212,7 @@ NodeJS 中也是循环+任务队列的流程以及微任务优先于宏任务，
 </details>
 </details>
 
-> 参考 [字节前端]( https://juejin.cn/post/7164224261752619016)
+> 参考 [面试必问之 JS 事件循环（Event Loop）](https://juejin.cn/post/7164224261752619016)
 
 
 
