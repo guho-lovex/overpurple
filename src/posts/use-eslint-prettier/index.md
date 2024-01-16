@@ -227,7 +227,7 @@ yarn add -D prettier eslint-plugin-prettier
   "editor.formatOnSave": true
 }
 ```
-
+如果想配置 import 成员排序可参考: [如何使用eslint-plugin-import进行import成员排序？](https://www.volcengine.com/theme/5319480-R-7-1)
 如果使用 nextjs 可以参考这篇文章: [如何给 Next.js 项目配置代码格式化和校验](https://juejin.cn/post/7268594193932533823)
 #### 接入husky和lint-staged
 ##### 安装husky
